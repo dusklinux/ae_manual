@@ -61,12 +61,12 @@ def verify(root=ROOT):
     assert '__CSS__' not in html and '__JS__' not in html and '__DATA__' not in html
 
     manual = (root / 'ALL_CONTENT.md').read_text(encoding='utf8')
-    assert manual.startswith('# After Effects 25.6')
+    assert manual.startswith('# After Effects 26.5')
     for chapter in written['chapters']:
         assert chapter['title'] in manual
     assert '## Effects encyclopedia' in manual
     assert '## Windows shortcuts' in manual
-    assert '### Explicitly later than 25.6' in manual
+    assert '### Stable 26.5 and Beta boundary' in manual
 
     for filename, entity_type in [('shortcuts.csv', 'shortcuts'), ('effects.csv', 'effects')]:
         with (root / filename).open(encoding='utf8', newline='') as f:
@@ -100,6 +100,6 @@ if __name__ == '__main__':
     except Exception as exc:
         print('FAILED:', repr(exc), file=sys.stderr)
         sys.exit(1)
-    print('VALIDATED: After Effects 25.6 Windows offline manual')
+    print('VALIDATED: After Effects 26.5 Windows offline manual')
     print('Content:', ', '.join(f'{k}={len(found[k])}' for k in ('chapters','topics','recipes','effects','shortcuts','troubleshooting','glossary','quiz')))
     print('Offline HTML, JSON, CSVs, Markdown and ZIP contents are consistent.')

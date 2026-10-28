@@ -25,13 +25,13 @@ class SecondPassChecks(unittest.TestCase):
   self.assertNotIn('<script src=',self.html)
   self.assertNotIn('<link rel="stylesheet"',self.html)
 
- def test_version_discipline_and_historical_security_source(self):
-  self.assertEqual(self.d['meta']['applicationVersion'],'25.6')
-  self.assertIn('security25',self.d['sources'])
-  self.assertIn('25.6.4',self.d['sources']['security25']['note'])
+ def test_version_discipline_and_release_source(self):
+  self.assertEqual(self.d['meta']['applicationVersion'],'26.5')
+  self.assertEqual(self.d['meta']['manualEdition'],2)
+  self.assertIn('release-notes',self.d['sources']['release']['url'])
   self.assertIn('quick offset',str(self.d['recipes']).lower())
-  for name in ('Quick Apply','Object Matte','Unmult','Curl Noise','Compressor','Gate'):
-   self.assertNotIn(name.casefold(),{x['name'].casefold() for x in self.d['effects']})
+  names={x['name'] for x in self.d['effects']}
+  self.assertTrue({'Unmult','Curl Noise','Compressor','Gate','Distortion'}<=names)
 
  def test_effects_include_missing_critical_families(self):
   names={x['name'] for x in self.d['effects']}
@@ -68,7 +68,7 @@ class SecondPassChecks(unittest.TestCase):
    self.assertNotIn(token,js)
 
  def test_zip_content_is_safe_and_complete(self):
-  p=ROOT/'after_effects_25_6_windows_offline_manual.zip'
+  p=ROOT/'after_effects_26_5_windows_offline_manual.zip'
   with zipfile.ZipFile(p) as z:
    self.assertIsNone(z.testzip())
    files=[x for x in z.namelist() if not x.endswith('/')]

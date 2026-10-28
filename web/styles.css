@@ -16,3 +16,11 @@ body.large-text{--font:17px}body.high-contrast{--ink:#000;--paper:#fff;--muted:#
 /* Progressive six-stage learning ladder; no JavaScript framework or external assets. */
 .roadmap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:15px 0 30px}.roadmap-stage{border:1px solid var(--border);border-radius:13px;background:#fff;padding:19px}.roadmap-stage-top{display:flex;justify-content:space-between;gap:12px;align-items:start}.roadmap-stage h3{font-size:16px;line-height:1.35;margin:5px 0 12px}.roadmap-stage .progressbar{margin:2px 0 13px}.roadmap-stage p{color:#475c68;font-size:13px;margin:0 0 9px}.roadmap-stage .tiny{font-size:12px;color:#586f7c}.roadmap-count{font-size:11px;white-space:nowrap;color:#536f7a}.roadmap-gate{font-size:13px;line-height:1.6;padding:12px;background:#f0f5f5;border-radius:9px;margin:12px 0}.roadmap-link{font-size:12px;font-weight:750;display:inline-block;margin-top:6px}
 @media(max-width:850px){.roadmap-grid{grid-template-columns:1fr}}
+
+/* Keep hidden focus-mode steps available for whole-lesson printing. */
+.focus-hidden{display:none}
+.search-target{outline:3px solid var(--accent);scroll-margin-top:100px}
+.step-text,.catalog-item,.source-row,.roadmap-stage{overflow-wrap:anywhere;min-width:0}
+@media print{.focus-hidden{display:flex!important}.sticky{position:static}.two-col{display:block}}
+body.large-text .step-text,body.large-text .docsection p,body.large-text .paper p,body.large-text .paper li,body.large-text .catalog-item p,body.large-text .card p,body.large-text .roadmap-stage p{font-size:1.1rem}
+body.high-contrast .label,body.high-contrast .tiny,body.high-contrast .card p,body.high-contrast .paper p,body.high-contrast .catalog-item p,body.high-contrast .docsection p,body.high-contrast .roadmap-stage p{color:#111}

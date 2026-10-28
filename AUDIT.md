@@ -1,88 +1,77 @@
-# Scope, coverage, evidence and verification audit
+# After Effects 26.5 manual audit
 
-**Application:** Adobe After Effects **25.6**, Windows only, default English keyboard.  
-**Version introduced:** November 11, 2025.  
-**Research cutoff:** October 28, 2026.  
-**Nature:** Independently authored learning manual, adapted from the supplied offline Factorio package's *design principles* and the supplied AE note's *topic coverage*. This is not Adobe-certified training.
+Audit date: **28 October 2026**. Target: **After Effects 26.5 stable, Windows, default English keyboard**. Reader: Linux/Windows offline browsers and Markdown viewers. This is independently authored instruction, not Adobe-certified training.
 
-## What was inspected
+## Main finding and scope correction
 
-- The supplied Factorio offline package: single-HTML offline app, structured datasets, guided lessons, quick lookup, agent notes, deterministic build/validation design.
-- The supplied AE Notes markdown: source mental models, shortcut families, effects inventory, 3D and compositing workflows, expressions, troubleshooting and practice. That document targets **AE 26.5** and therefore contains post-25.6 functionality.
-- Adobe 25.6 release announcement, Adobe-maintained feature history and 25.x Windows technical requirements.
-- Official Adobe manuals for keyboard shortcuts, expressions, effects, color/OCIO, Motion Graphics templates, memory, multiframe rendering and troubleshooting. These are continuously updated, so they must be checked against the version history before describing a 25.6 UI capability.
+The supplied local repository and GitHub HEAD (`51bd1f8`) targeted **25.6**, despite the requested **26.5** and the supplied 26.5 Markdown notes. Version metadata, lessons, catalogs, validation, README, maintenance policy, storage keys and progress exports all enforced the older target. Quick Apply, Object Matte, native meshes/materials, Unmult, new audio effects, variable-font axes, SVG workflows, Curl Noise, Advanced 3D DOF and ACES 2.0 were deliberately excluded or described as unavailable.
 
-## Version boundary decisions
+This edition corrects the target throughout. Adobe’s [release notes](https://helpx.adobe.com/after-effects/desktop/what-s-new/release-notes-after-effects.html) identify September 2026 version 26.5; [What’s New](https://helpx.adobe.com/after-effects/desktop/what-s-new/whats-new.html) documents the stable improvements. The historical 25.6 topic remains as earlier functionality retained in 26.5, with its durable ID preserved. The old security-patch discussion was removed from the version policy because it was irrelevant to the requested edition; this was a documentation/product audit, not a security audit.
 
-| Version | Relevant additions | Treatment in this manual |
+The Factorio path was supplied in error and explicitly corrected to `/mnt/zram1/ae_manual`. The Factorio files and the personal Markdown note were not edited. The note was read as a coverage seed; its statements were compared with feature-specific Adobe references rather than imported uncritically.
+
+## Coverage and teaching changes
+
+| Area | Previous edition | Current edition |
 |---|---|---|
-| 25.2 | Improved preview system, FBX support and 3D/color workflow changes | Included where useful; verify exact renderer limits |
-| 25.3 | Improved composition zoom behavior | Included in general viewing guidance |
-| 25.4 | Quick Offset; copying/pasting text formatting | Covered as 25.6-available |
-| **25.6** | Multiple 3D-layer gizmo behavior, default camera settings, tips and timeline close commands | Target edition |
-| 26.0 | Native parametric meshes, Substance materials, Unmult, new audio effects, variable-font axis animation, native SVG-to-shape import | Excluded |
-| 26.2 | Object Matte, Quick Apply, Proportional Scrubbing | Excluded |
-| 26.3 | Curl Noise, new Mask Tracker behavior, in-engine Advanced 3D depth of field, clipboard frame capture | Excluded |
-| 26.5 | Revised guides, effect color labels, bundled OCIO 2.5.1/ACES 2.0 | Excluded |
+| Target | 25.6, November 2025 | 26.5 stable, September 2026 |
+| Lessons | 35 | 40, including 5 current-workflow lessons |
+| Explanatory topics | 78 | 100 |
+| Practical recipes | 27 | 34 |
+| Effect/control records | 285 | 300 |
+| Shortcut/gesture records | 373 | 386 |
+| Glossary | 145 | 155 |
+| Practice assets | None | Original SVG, JSON, CSV and PCM audio |
 
-The document is not silently updated to 26.5 even where the source notes cover it in detail. Abbreviations and older features are kept only where compatible with 25.6.
+The six learning stages remain monotonic. Recipe prerequisites now use durable chapter IDs; lesson numbers are derived after ordering, so inserting a lesson cannot silently point a recipe at an unrelated prerequisite. Existing lesson IDs and six original action positions remain stable.
 
-## Detailed learning coverage
+Modern workflows now include Quick Apply result modifiers, responsive guide units/reference edges, effect swatches and masked contributions, Object Matte correction/propagation/freeze/cache, Proportional Scrubbing versus Quick Offset, SVG file/clipboard routes, variable-font axes/spacing, native geometry/materials/displacement, actual Advanced 3D camera focus, Curl Noise, Unmult, Compressor/Gate/Distortion, ACES 2.0, native null controllers and clipboard frame capture. Added references cover expression examples, modern dropdown labels/key lookup, text outlines/Layer Styles and immersive effects.
 
-- **Orientation:** install, panels, compositions, source media, pixel channels, file organization.
-- **Animation:** keyframes, space/time interpolation, graphs, paths, easing, motion blur, speed curves, layer timing, time remapping.
-- **Drawing and text:** masks, shape operators, path edits, text animators, typography, design systems.
-- **Compositing:** alpha, mattes, blending, keying, masks, roto, color, premultiplication, integration/grain.
-- **Motion and 3D:** track/planar track, camera track, stabilization, parenting, expressions, 3D cameras, lights, renderer distinctions, 3D assets.
-- **Technical:** effects chains, expressions, data, motion-graphics templates, JavaScript/ExtendScript concepts, previews, caches, multi-frame rendering, audio, color-management decisions, video masters/alpha, portability.
-- **Reference:** extensive keyboard catalog, effect explanations, glossary, repeated troubleshooting patterns, practical projects and review quizzes.
+Concrete instruction corrections include:
 
-## Checks by this package
+- The old logo-reveal recipe moved a fixed matte past the logo, potentially hiding it again. The logo now enters a stationary reveal window and remains fully covered at its final pose.
+- A four-second 25-fps exercise asked for frame 100 as if it were inside the comp. Frames 0–99 are visible; 100 is the exclusive duration boundary.
+- The loop recipe now preserves the full source-duration interval with an explicit last-valid-frame Hold and a boundary remap to zero. Merely deleting a default duration-end key can shorten a cycle. Source rate/trim offsets still require inspecting the actual render.
+- Effects catalog corrected an unsupported `CC Color Balance` label to documented `CC Kernel`, and added missing Levels (Individual Controls), Broadcast Colors, Video Limiter, Mocha AE, CINEWARE and OCIO transforms.
+- Placeholder audio expressions were replaced with full named references. CSV and JSON access paths are distinguished; table cells are inspected with the pick whip rather than guessed from nested JSON.
+- Modern effect labels use the documented gray swatch beside each instance; the panel’s swatch/tint options affect organization rather than pixels.
 
-`validate.py`, `tests/test_manual.py` and `tests/browser_logic.cjs` establish that every lesson is actionable, link targets are valid, no known post-25.6 effect labels slip into the effects directory, no macOS shortcuts appear, both JSON and embedded HTML match, ZIP content is complete and exports are structurally parseable. Optional browser smoke tests are described by the developer notes and may be performed when a browser automation runner is available.
+The effect directory is an orientation reference. It includes obsolete compatibility effects and explicitly identified tool-generated processing; it does not claim all 300 records are ordinary drag-on generators or that every installed plug-in parameter is enumerated. CPU/GPU, bit depth and MFR support are independent; no unsupported blanket performance claims were added.
 
-## Limits / nonclaims
+## Research and source conflicts
 
-- **Not live-product certified:** no licensed AE 25.6 application was available to execute all steps against every Windows variant, user preset or installed plug-in.
-- **Not mathematically exhaustive:** no finite static guide can reproduce every property of every plug-in, every scripting API and all external formats. The effects directory is a learning-oriented lookup.
-- **Compatibility:** shortcut bindings depend on panel focus, input language, custom presets and keyboard hardware. Punctuation keys in particular should be checked in the application.
-- **Third-party dependencies:** Mocha AE, Cinema 4D integration and external encoders or file types may vary by AE license, plug-in bundles, installation and workflow.
-- **Network:** offline app doesn't load external resources; clicking source links is intentional internet browsing.
-- **Copyright:** source material was used as research/context. No Adobe proprietary documentation pages, images, license assets or plug-in binaries are bundled.
+Primary references are linked per lesson/topic/recipe in HTML and Markdown, and recorded in `content.py → SOURCES`. Adobe’s general effect/keyboard tables predate some recent feature-specific pages, so a missing modern entry in a general table is not sufficient evidence of absence.
 
-## Primary sources
+- **Stable/Beta:** Adobe’s [Beta page](https://helpx.adobe.com/after-effects/desktop/what-s-new/after-effects-beta.html), updated October 7, separately lists Contour Paint, De-esser, AI Assistant, animated-layer material sources, materials on 3D text/shapes, editable Illustrator text, Quick Set Anchor, generalized viewer Alt-drag duplication, PNG compression selection, Account/Stock panels and enhanced Auto-Save. These remain a watchlist, not stable lesson prerequisites. Stable mesh-specific duplication has narrower scope.
+- **Object Matte binding:** its [dedicated page](https://helpx.adobe.com/after-effects/desktop/roto-brush-and-refine-matte/roto-brush/object-matte.html) lists Windows Ctrl+W, while the [general shortcuts](https://helpx.adobe.com/after-effects/desktop/get-started/keyboard-shortcuts/keyboard-shortcuts-reference.html) use Ctrl+W for Close. No undocumented focus rule is invented. Use the toolbar or inspect/remap locally.
+- **Guide import:** [guide documentation](https://helpx.adobe.com/after-effects/desktop/view-and-preview/preview-video-and-audio/guide-creation-and-management.html) explicitly describes 26.5 preservation of colors, units and pins, followed by retained older statements about conversion. The guide teaches current behavior and requires a destination round trip for interchange.
+- **Cache crashes:** the [known-issues page](https://helpx.adobe.com/after-effects/desktop/troubleshooting/fixed-and-known-issues/known-issues-after-effects.html) names 26.0/26.2 for the compressed-cache crash notice. It is not presented as proof that all 26.5 installations should disable compression. The listed 26.5 twirl-state issue is a different problem.
+- **Color:** [OCIO documentation](https://helpx.adobe.com/after-effects/desktop/adjust-colors/opencolorio-and-aces-color-management/opencolorio-aces-color-management.html) confirms OCIO 2.5.1, ACES 2.0 CG v4.0 and Studio v4.0. Source interpretation, working space, display transform and output transform remain separate decisions.
 
-- [Adobe 25.6 announcement](https://community.adobe.com/announcements-527/after-effects-25-6-is-now-available-to-download-60888)
-- [Adobe-maintained AE feature history](https://github.com/AdobeDocs/after-effects-feature-history)
-- [Adobe AE 25.x Windows requirements](https://helpx.adobe.com/after-effects/desktop/get-started/technical-requirements/2025.html)
-- [Adobe AE keyboard shortcuts](https://helpx.adobe.com/after-effects/desktop/get-started/keyboard-shortcuts/keyboard-shortcuts-reference.html)
-- [Adobe AE effects reference](https://helpx.adobe.com/after-effects/desktop/apply-effects-and-animation-presets/effects-and-animation-presets/effect-list.html)
-- [Adobe AE help index](https://helpx.adobe.com/after-effects/desktop.html)
+`data/source_checks.json` distinguishes editorial web research from automated HTTP retrieval. The direct HTTP run received 403 for Adobe URLs, while GitHub history was retrievable. Those errors are preserved, not represented as broken links or successful validation. Web research retrieved the cited primary pages. Neither a successful HTTP status nor a search result certifies every procedure in the product.
 
-The UI's **Version / sources / audit** tab includes the complete topic-associated source list.
+## Reader reliability and progress
 
-## Second pass — 28 October 2026
+Search results now identify the exact effect/shortcut/problem/term and focus its entry. The skip link moves focus without routing away from the active lesson. Checking a step or quiz option restores keyboard focus after redraw. Reading options affect the small text used in lessons/catalogs. One-step view retains all actions in the DOM and prints the whole lesson.
 
-### Confirmed and repaired
+Saved/imported progress is validated before use, including arrays versus objects, known step keys, quiz indices/options and preference types. Malformed state cannot be spread into the application. Imports replace progress only after validation and confirmation; failed reads are reported. Storage failures leave reading and JSON export available.
 
-- **Linux/Windows reader** explicitly supported; the actual AE curriculum remains Windows-only. Offline `index.html` uses relative/inline resources only and does not depend on operating-system font paths, Windows APIs, or an HTTP server. Browser storage may be restricted with `file://`, and progress must be exported/imported when moving between Linux and a Windows virtual machine. The Markdown edition is a fallback.
-- **Lesson 06** now creates an initial Opacity keyframe at time zero before changing the second value; the previous sequence risked teaching a constant change rather than a fade.
-- **Effects directory** expanded with missing official families: expression controllers, camera tracking, rain/snow, VR, legacy compatibility, time, text, transition and utility effects. Entries remain concise descriptions, not per-parameter claims. Adobe's effect list is rolling, so entries not certified in an installed 25.6 are explicitly labeled for local verification.
-- **Navigation/precision**: Markdown topic cross-links, safe treatment of malformed URL fragments, standard browser scroll behavior, exact 24000/1001 and 30000/1001 calculator rates; dropped fractional-frame rows from the quick timing table.
-- **Version security**: Adobe bulletin APSB26-15 documents updates affecting 25.6 and earlier builds, including 25.6.4; security patches within 25.6.x do not authorize 26.x-only features.
+Current exports use version 26.5/edition 2. Old 25.6/edition-1 data is accepted and migrated; original browser storage is retained. The installation lesson, `effects:4` (new launcher operation), `color:4` (current ACES configuration), `advanced3d:5` (native mesh operation), and quiz index 1 need review and are reset. New lessons start unchecked. Other original action IDs retain their meaning. Moving the HTML to another path/browser may require explicit JSON import.
 
-### What validation cannot prove
+## Verification record and limits
 
-Byte-level ZIP integrity, SHA-256 manifest checks, rebuild reproducibility, structured links, JavaScript syntax, CSS and HTML embedding, JSON/CSV parity and the reading platform's lack of external assets can be validated automatically. These checks cannot establish that every shortcut works with a particular Windows keyboard preset, every effects panel is present in a particular AE build, or a 3D render succeeds with virtualized GPU drivers. Live Chromium navigation was blocked by the available execution environment during the second pass. No claim of actual Linux browser E2E or licensed After Effects run is made.
+The initial checkout had 25 structural tests: 23 passed, two failed because the documented ZIP was absent. Earlier audit text said browser testing was blocked. In this environment both system Chromium and Playwright Firefox launch successfully, so the revised reader has real offline browser coverage.
 
-## Final macro + micro audit — 28 October 2026
+The regression suite covers generated data/embedded HTML/CSV consistency, version gates, sources and internal links, curriculum order, prerequisites, original progress keys, sample dimensions, manifest contents and archive extraction/rebuild identity. Node checks cover JavaScript syntax, simulated navigation, progress and malformed data. Real-browser checks use `file://` with networking disabled and cover every route/record, exact search results, filters, persistence, export/import, legacy migration, keyboard focus, printing, exact fractional-frame timing, 375/768-pixel layouts and corrupt/blocked storage. Final measured results are recorded below after the final run.
 
-**Curriculum:** reorganized into strictly ascending START (5 lessons), FOUNDATIONS (8), INTERMEDIATE (11), ADVANCED (6), DELIVERY (4) and CAPSTONE (1). The former lesson 34 (scripts) now appears as lesson 30, before rendering and delivery. Stable IDs and step indices preserve existing exported progress. Each stage has a self-directed challenge, and recipes are now sorted by suggested prerequisite lesson. The levels are guidance rather than restrictions.
+No licensed Windows AE 26.5 installation was available. The 240 authored actions and rendered examples were not exhaustively executed in the product. Synthetic assets do not validate photographic tracking, keying or Object Matte; those need suitable footage. External fonts, SBSARs, Mocha/Maxon components, codecs, hardware/VM GPU behavior and third-party extensions need their own installation/render checks. This audit does not claim parameter-level completeness for every effect, every scripting API or every possible production task.
 
-**Instruction-level corrections:** fixed the timing lesson's unproductive same-playhead move/trim comparison; improved a source-instancing lab to use assets actually created in the prior steps; and fixed the precompose lesson's misleading multi-layer choice. Adobe documents that *Leave all attributes* is unavailable for multiple selections or shape/text layers. See source key `precompose`.
+### Final measured results
 
-**Patch accuracy:** Adobe's July 14, 2026 bulletin APSB26-78 gives version **25.6.6** as the 25.6-series update, superseding the previously highlighted 25.6.4 security guidance. The 25.6 lesson feature boundary remains November 2025.
+- **29/29** dependency-free structural/content/package tests passed, including extraction and byte-identical rebuild of the archive.
+- **Chromium and Firefox: 1,094/1,094 offline routes each passed**, plus the functional checks above; **zero HTTP requests and zero JavaScript errors** in the browser run.
+- JavaScript syntax and Node simulated navigation/progress/malformed-state checks passed. CLI help works without Playwright installed in the system interpreter.
+- Desktop (1440 pixels) and mobile (375 pixels) screenshots inspected; automated layout checks passed at 375/768 pixels with normal and enlarged prose.
+- Generated HTML, JSON, Markdown, CSVs and ZIP are consistent; `git diff --check` is clean. Performance throughput was not benchmarked, so no speedup is claimed.
 
-**Catalog organization:** split a mixed Stylize/Time/Transition effects category into actual technique families, retaining IDs so references remain stable. Counts are not proof of exhaustive installed-effect coverage; many entries are compatibility-only or require local verification in a licensed AE 25.6 installation.
-
-**Testing scope:** tests of source schemas, references, version prohibitions, link routes, all-generated export consistency, ZIP manifest and JavaScript syntax are executable locally. A real Chromium browser smoke test was attempted on `file://` and `http://127.0.0.1` but navigation was blocked by administrative execution policy, not an observed app crash. Live AE 25.6 Windows VM instructions and different Linux browser/storage configurations remain unverified. Do not describe this package as fully certified in either environment.
+These are reader/build results on Linux. They do not certify rendering, menus or every exercise inside Windows After Effects.

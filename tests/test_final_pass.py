@@ -14,7 +14,7 @@ class FinalPassChecks(unittest.TestCase):
   stages=list(dict.fromkeys(ch['phase'] for ch in DATA['chapters']))
   self.assertEqual(stages,PHASES)
   self.assertEqual([s['phase'] for s in DATA['stagePlan']],PHASES)
-  self.assertEqual(Counter(ch['phase'] for ch in DATA['chapters']),Counter({'START':5,'FOUNDATIONS':8,'INTERMEDIATE':11,'ADVANCED':6,'DELIVERY':4,'CAPSTONE':1}))
+  self.assertEqual(Counter(ch['phase'] for ch in DATA['chapters']),Counter({'START':5,'FOUNDATIONS':9,'INTERMEDIATE':14,'ADVANCED':7,'DELIVERY':4,'CAPSTONE':1}))
   self.assertEqual(DATA['chapters'][-1]['id'],'capstone')
 
  def test_chapter_numbers_and_stage_challenges(self):
@@ -31,9 +31,10 @@ class FinalPassChecks(unittest.TestCase):
    self.assertTrue(r['title'].startswith(f'{ix:02} · '))
    self.assertGreaterEqual(r['afterLesson'],prev)
    self.assertIn(r['level'],levels)
-   self.assertEqual(levels[r['level']],0 if r['afterLesson']<=13 else 1 if r['afterLesson']<=24 else 2)
+   phase=DATA['chapters'][r['afterLesson']-1]['phase']
+   self.assertEqual(levels[r['level']],0 if phase in ('START','FOUNDATIONS') else 1 if phase=='INTERMEDIATE' else 2)
    prev=r['afterLesson']
-  required={'handwriting':9,'text-window':12,'stagger':15,'glow-outline':18,'rgb-split':23,'capstone':35}
+  required={'handwriting':9,'text-window':12,'stagger':16,'glow-outline':19,'rgb-split':24,'capstone':40}
   self.assertTrue(all(next(r['afterLesson'] for r in DATA['recipes'] if r['id']==key)==num for key,num in required.items()))
 
  def test_corrected_steps(self):
@@ -56,13 +57,11 @@ class FinalPassChecks(unittest.TestCase):
   self.assertNotRegex(html,r'<iframe\b')
 
  def test_verifiable_version_boundary(self):
-  assert DATA['meta']['applicationVersion']=='25.6'
-  source=DATA['sources']['security25']
-  self.assertIn('25.6.6',source['note'])
-  self.assertIn('apsb26-78',source['url'])
+  self.assertEqual(DATA['meta']['applicationVersion'],'26.5')
+  self.assertIn('release-notes',DATA['sources']['release']['url'])
   self.assertIn('Leave all attributes',DATA['sources']['precompose']['note'])
   self.assertFalse(any('Stylize, Time & Transition'==fx['category'] for fx in DATA['effects']))
-  self.assertTrue(all(not re.search(r'(?i)\b(Quick Apply|Object Matte|Curl Noise|Unmult)\b',fx['name']) for fx in DATA['effects']))
+  self.assertTrue({'Unmult','Curl Noise'}<={fx['name'] for fx in DATA['effects']})
 
  def test_exported_markdown_roadmap_and_recipe_mapping(self):
   md=(ROOT/'ALL_CONTENT.md').read_text('utf8')

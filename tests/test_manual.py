@@ -20,16 +20,15 @@ class ContentTests(unittest.TestCase):
 
     def test_windows_only(self):
         self.assertEqual(self.d['meta']['platform'], 'Windows')
-        self.assertEqual(self.d['meta']['applicationVersion'], '25.6')
+        self.assertEqual(self.d['meta']['applicationVersion'], '26.5')
         for x in self.d['shortcuts']:
             self.assertNotIn('macos', x['key'].lower())
             self.assertNotIn('⌘', x['key'])
 
-    def test_25_6_feature_boundary(self):
-        future = ('quick apply', 'object matte', 'curl noise', 'unmult', 'native svg', 'substance materials', 'aces 2.0')
-        for x in self.d['effects']:
-            self.assertFalse(any(f in x['name'].lower() for f in future), x['name'])
-        # Future features are permitted solely in explicit no-go warnings/audit notes.
+    def test_26_5_feature_boundary(self):
+        names={x['name'] for x in self.d['effects']}
+        self.assertTrue({'Unmult','Curl Noise','Compressor','Gate','Distortion'}<=names)
+        self.assertFalse({'Contour Paint','De-esser'}&names)
 
     def test_lessons_have_measurable_outcomes(self):
         for x in self.d['chapters']:

@@ -1,46 +1,40 @@
-# Guide maintenance handoff
+# Maintaining the After Effects 26.5 offline manual
 
-## Purpose
+The current user request explicitly supersedes the repository’s old 25.6 instructions. Target **26.5 stable, Windows, default English keyboard**. The reader runs offline on Linux and Windows. Do not revert the edition to 25.6 or remove modern stable tools.
 
-Continue an offline-first Windows-only learning application for **After Effects 25.6**. Do **not** gradually add current/latest-version features. The user explicitly asked for the 25.6 edition, despite supplying a 26.5 personal note as a starting point.
+Read `AUDIT.md` for source conflicts, live-product limits and verification evidence. Use Adobe’s release notes and feature-specific stable documentation; the shared Help sidebar includes Beta features.
 
-## Authoring hierarchy
+## Authoring
 
-1. `content.py`: `SOURCES`, ordered `CHAPTERS` built with `lesson()`, `TOPICS` with `topic()`, `RECIPES` with `recipe()`, and extra glossary/troubleshooting/quiz data.
-2. `data/*.json`: curated reference catalogs, with durable IDs.
-3. `web/template.html`, `web/styles.css`, `web/app.js`: browser UI; must work from `file://` and make no network requests.
-4. `build.py`: builds all deliverables and ZIP. `validate.py` plus unittest verify outputs.
-5. `index.html`, `ALL_CONTENT.md`, `manual_data.json`, CSVs and ZIP: **generated; don't hand-edit**.
+- `content.py` contains sources, lessons, topics, recipes, roadmap, glossary additions, troubleshooting and quiz. Lesson and topic helpers keep authored sections consistent. Recipe prerequisites use durable chapter IDs; displayed numbers are derived after ordering.
+- `data/*_seed.json` contains curated catalogs. Keep record IDs stable. New records append new IDs; correcting a name does not imply renumbering other entries.
+- `web/template.html`, `web/styles.css`, `web/app.js` form the single HTML reader. No external scripts, styles, fonts, images or runtime requests. Source URLs are optional user-activated references.
+- `samples/*` supplies original minimal assets, with explicit instructions and limits. Do not imply synthetic graphics validate photographic tracking, keying or Object Matte.
+- `build.py` produces HTML, Markdown, JSON, CSVs, manifest and deterministic ZIP. Generated files must be rebuilt together.
 
-## Invariants
+## Progress contract
 
-- Platform Windows only. Shortcuts are Windows defaults or explicitly contextual gestures; label a newly assigned shortcut as custom.
-- Curriculum must remain beginner → intermediate → advanced. A lesson includes >=5 actionable steps, a self-check, an independent experiment, common errors, deep-topic references and source keys.
-- Topic has multiple explanatory sections, an experiment and pitfalls. Recipe has an explicit verification and a recovery instruction.
-- Preserve stable ID strings; they key learners' locally saved progress. If IDs change, provide a migration (edition field) and document it.
-- Every externally sourced version fact must distinguish the original release from later revisions to Adobe's rolling Help pages.
-- The reference catalogs are substantial but should not make false statements about unverified third-party plug-in availability.
-- Full HTML bundle must work offline: no CDN, external JS/CSS, auto-fetch requests, tracking, fonts, iframes or images.
-- Avoid promoting post-25.6 features. Key future-feature exclusions: Quick Apply, Object Matte, Curl Noise, native parametric meshes, SVG native import, Unmult, new 26.0 audio effects, 26.2 Proportional Scrubbing, 26.3 advanced 3D depth of field, 26.5 ACES 2.0 configurations and 26.5 guide changes.
+Current storage: `ae_26_5_windows_manual_progress_v2`, version `26.5`, edition 2. Legacy: `ae_25_6_windows_manual_progress_v1`, version `25.6`, edition 1. Keep the old record when migrating. `tests/legacy_progress.json` records original chapter IDs/action counts. Existing six action positions retain their meaning except explicitly reset installation, `effects:4`, `color:4` and `advanced3d:5`. Quiz index 1 changed and is reset. New lessons have new IDs and start unchecked. Changes to the meaning/order of completed actions require explicit migration, not just new headings.
 
-## Build and audit
+Import validates before replacement and accepts only compatible versions/editions, known action IDs, true checks, valid quiz options and boolean preferences. Malformed/blocked local storage must not break reading. Export remains available without storage. One-step reading must still print all lesson actions.
 
-```powershell
-python build.py
-python validate.py
-python -m unittest discover -s tests -v
+## Stable/Beta distinctions
+
+Include Quick Apply, Object Matte, Curl Noise, Unmult, Compressor/Gate/Distortion, native parametric meshes, SBSAR materials on supported models/meshes, mesh displacement, variable-font axes, SVG import/paste, Proportional Scrubbing, Advanced 3D DOF, clipboard frames, effect labels, guide improvements and bundled ACES 2.0.
+
+Keep Beta-only Contour Paint, De-esser, AI Assistant, animated-layer material sources, materials on 3D text/shapes, editable Illustrator-text conversion, Quick Set Anchor, generalized viewer Alt-drag duplication, PNG compression selection, Account/Stock panels and enhanced Auto-Save in the watchlist until stable release evidence changes. Stable mesh-specific duplication is a different scope.
+
+## Verification
+
+```sh
+python3 build.py
+python3 validate.py
+python3 -m unittest discover -s tests -v
+node --check web/app.js
+node tests/browser_logic.cjs
+python3 tests/browser_check.py --browser both
 ```
 
-To validate interactive behavior: open the `file:///.../index.html` path in Windows Chromium/Edge, navigate Overview → first Lesson, check a step, reload, confirm progress persists; search for `graph editor`; browse effects filter, test quiz choice, test numeric frame lab and export/import progress. Verify all features without internet.
+The browser runner needs Playwright and Chromium/Firefox; the reader and dependency-free tests do not. Python baseline: 3.15+. Optional browser imports are lazy so CLI help works without that dependency. Tests cover a real file URL offline, routes, exact record navigation, filters, focus, print, storage, migration, exports/imports, timing and mobile layout. ZIP extraction/rebuild must be byte-identical.
 
-## Good next improvements
-
-- Capture version-specific screenshots from an appropriately licensed AE 25.6 Windows installation (do not bundle third-party images without rights).
-- Trial the complete 35-lesson curriculum on actual 25.6 and mark UI exactness for each lesson.
-- Add per-effect parameter references only after verifying the native/bundled installed effect menus in 25.6.
-- Add packaged **original** sample footage/shapes/design templates if the owner requests them and licensing is confirmed.
-- Add accessible diagrams/keyboard alternates, while maintaining the single-file and offline constraints.
-
-## Source responsibility
-
-Treat user-supplied Factorio project as a format/workflow reference, never copy its unrelated game-specific content. Treat the AE 26.5 note as an annotated coverage seed, not a 25.6 feature-availability authority. Additional version evidence is in `AUDIT.md` and `content.py → SOURCES`.
+Do not equate these checks with executing the lessons in licensed Windows AE. Hardware, renderer, media, fonts, plug-ins, external apps and output validation remain a separate product test. Avoid unsupported 100% completeness/certification claims and invented performance scores.

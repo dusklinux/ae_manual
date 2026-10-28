@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Deterministic, dependency-free builder for the AE 25.6 Windows offline field manual."""
+"""Deterministic, dependency-free builder for the AE 26.5 Windows offline field manual."""
 import argparse,csv,datetime,hashlib,io,json,pathlib,sys,zipfile
 import content
 ROOT=pathlib.Path(__file__).resolve().parent
-EDITION=1
-VERSION='25.6'
-OUTPUT='after_effects_25_6_windows_offline_manual.zip'
+EDITION=2
+VERSION='26.5'
+OUTPUT='after_effects_26_5_windows_offline_manual.zip'
 
 
 def read_json(path):return json.loads(path.read_text(encoding='utf-8'))
@@ -22,12 +22,12 @@ def data():
    if t.lower() not in {x['term'].lower() for x in glossary}:glossary.append({'term':t,'definition':defn})
  glossary.sort(key=lambda x:x['term'].lower())
  quiz=[{'id':f'q-{i+1:03}','question':q,'options':opts,'correct':a,'explanation':why} for i,(q,opts,a,why) in enumerate(content.QUIZ)]
- return {'meta':{'name':'After Effects 25.6 — Windows Complete Learning Manual', 'application':'Adobe After Effects','applicationVersion':'25.6','platform':'Windows','readerPlatforms':['Linux','Windows'],'keyboard':'Default English layout','manualEdition':EDITION,'released':'2025-11-11','guideResearchCutoff':'2026-10-28','offline':True,'provenance':'Adobe release history, 25.x system requirements, Adobe documentation and user-supplied 26.5 topic inventory curated to 25.6'},
+ return {'meta':{'name':'After Effects 26.5 — Windows Complete Learning Manual', 'application':'Adobe After Effects','applicationVersion':'26.5','platform':'Windows','readerPlatforms':['Linux','Windows'],'keyboard':'Default English layout','manualEdition':EDITION,'released':'2026-09','guideResearchCutoff':'2026-10-28','offline':True,'provenance':'Adobe 26.5 release notes, current requirements, feature-specific Adobe documentation and user-supplied topic inventory'},
   'stagePlan':content.STAGE_PLAN,'chapters':content.CHAPTERS,'topics':content.TOPICS,'recipes':content.RECIPES,'effects':effects,'shortcuts':shortcuts,'troubleshooting':problems,'glossary':glossary,'quiz':quiz,'sources':content.SOURCES}
 
 
 def validate(d):
- assert d['meta']['applicationVersion']=='25.6'
+ assert d['meta']['applicationVersion']=='26.5'
  for plural,key in [('chapters','id'),('topics','id'),('recipes','id'),('effects','id'),('shortcuts','id'),('troubleshooting','id'),('quiz','id')]:
   seq=d[plural];assert len(seq)==len(set(str(v[key]) for v in seq)),f'duplicate IDs in {plural}'
  topicset={x['id'] for x in d['topics']}
@@ -47,42 +47,49 @@ def validate(d):
   assert len(r['steps'])>=5 and r['verify'] and r['fail']
   assert all(k in d['sources'] for k in r['sources'])
  for x in d['quiz']:assert len(x['options'])==4 and 0<=x['correct']<4
- for key in ['quick apply','object matte','curl noise','unmult','aces 2.0','variable-font']:
-  assert not any(key in x['name'].lower() for x in d['effects']),key
+ names={x['name'].casefold() for x in d['effects']}
+ assert {'unmult','curl noise','compressor','gate','distortion'}<=names
+ assert not {'contour paint','de-esser'}&names, 'Beta-only effects in stable directory'
+ for kind in ('effects','shortcuts'):
+  assert all(x['source'] in d['sources'] for x in d[kind]), ('Missing reference source',kind)
  assert not any('macos' in x['key'].lower() for x in d['shortcuts'])
  assert len(d['chapters'])>=30 and len(d['topics'])>=70 and len(d['effects'])>=200
  assert len(d['shortcuts'])>=300 and len(d['recipes'])>=25
  return True
 
 
+def source_markdown(d, ids):
+ return ', '.join(f"[{d['sources'][k]['title']}]({d['sources'][k]['url']})" if d['sources'][k]['url'] else d['sources'][k]['title'] for k in ids)
+
+
 def md(s):return str(s).replace('\r',' ').strip()
 def markdown(d):
  out=[f"# {d['meta']['name']}",
-  '', '**Application lessons:** After Effects **25.6 on Windows only**, default English keyboard. **Reading:** open the offline HTML or Markdown on Linux or Windows; export/import browser progress to move between systems.',
-  '', '> Version accuracy: notes supplied for 26.5 informed the coverage inventory, but post-25.6 feature instructions are excluded. Current Adobe Help pages may contain later features. No claim is made that this package reproduces every parameter of every native, bundled or third-party effect.',
+  '', '**Application lessons:** After Effects **26.5 on Windows only**, default English keyboard. **Reading:** open the offline HTML or Markdown on Linux or Windows; export/import browser progress to move between systems.',
+  '', '> Version accuracy: This edition teaches stable 26.5, including the modern 26.0–26.5 tools. Features labeled Beta remain separate. Current Adobe Help pages can mix both. No claim is made that this package reproduces every parameter of every native, bundled or third-party effect.',
   '', '## Table of contents','',
   '- [Step-by-step curriculum](#step-by-step-curriculum)','- [Deep topic reference](#deep-topic-reference)','- [Practical recipes](#practical-recipes)','- [Effects encyclopedia](#effects-encyclopedia)','- [Windows shortcuts](#windows-shortcuts)','- [Troubleshooting](#troubleshooting)','- [Glossary](#glossary)','- [Sources and version restrictions](#sources-and-version-restrictions)','',
   '', '---','', '## Learning ladder and readiness checks',''] + [f"### {stage['phase']} — {stage['name']}\n\n**Learn:** {stage['objective']}\n\n**Before moving on:** {stage['gate']}\n\n**Practice:** {stage['practice']}\n" for stage in d['stagePlan']] + ['','---','', '## Lesson index',''] + [f"{i}. [{ch['title']}](#lesson-{ch['id']})" for i,ch in enumerate(d['chapters'],1)] + ['', '## Step-by-step curriculum','']
  for i,ch in enumerate(d['chapters'],1):
-  out += [f"<a id=\"lesson-{ch['id']}\"></a>",f"### {md(ch['title'])}",'',f"**Stage:** {ch['phase']}  ",f"**Why:** {ch['why']}",'']
+  out += [f"<a id=\"lesson-{ch['id']}\"></a>",f"### {md(ch['title'])}",'',f"**Stage:** {ch['phase']}",f"**Why:** {ch['why']}",'']
   out += [f'{j}. {md(step)}' for j,step in enumerate(ch['steps'],1)]
   out += ['','**Do it yourself:** '+ch['experiment'],'', '**Self-check:**']+[f'- [ ] {v}' for v in ch['checks']]
   if ch['pitfalls']:out += ['','**Common mistakes:**']+[f'- {v}' for v in ch['pitfalls']]
-  out += ['','**Related deep dives:** '+', '.join(f"[{next(t['title'] for t in d['topics'] if t['id']==k)}](#topic-{k})" for k in ch['topics']),'']
+  out += ['','**Related deep dives:** '+', '.join(f"[{next(t['title'] for t in d['topics'] if t['id']==k)}](#topic-{k})" for k in ch['topics']),'','**Sources:** '+source_markdown(d,ch['sources']),'']
  out+=['---','','## Deep topic index',''] + [f"- [{t['title']}](#topic-{t['id']})" for t in d['topics']] + ['', '## Deep topic reference','']
  for t in d['topics']:
   out += [f"<a id=\"topic-{t['id']}\"></a>",f"### {t['title']}",'',f"*{t['category']}* — {t['summary']}",'']
   for sec in t['sections']:out += [f"**{sec['title']}**",'',sec['text'],'']
   out += ['**Experiment:** '+t['experiment'],'']
   if t['pitfalls']:out += ['**Pitfalls:** '+'; '.join(t['pitfalls']),'']
-  out += ['**Related topics:** '+', '.join(f"[{next(x['title'] for x in d['topics'] if x['id']==k)}](#topic-{k})" for k in t['related']),'']
+  out += ['**Related topics:** '+', '.join(f"[{next(x['title'] for x in d['topics'] if x['id']==k)}](#topic-{k})" for k in t['related']),'','**Sources:** '+source_markdown(d,t['sources']),'']
  out+=['---','','## Practical recipes','']
  for r in d['recipes']:
   out += [f"### {r['title']}",'',f"**{r['category']} · {r['level']} · Suggested after lesson {r['afterLesson']:02d}** — {r['goal']}",'']
   out += [f"{j}. {step}" for j,step in enumerate(r['steps'],1)]
-  out += ['',f"**Verify:** {r['verify']}",f"**If it fails:** {r['fail']}",'']
+  out += ['',f"**Verify:** {r['verify']}",f"**If it fails:** {r['fail']}",'','**Sources:** '+source_markdown(d,r['sources']),'']
  out+=['---','','## Effects encyclopedia','',
-  'Orientation directory of effects and expression controls, including compatibility-only effects. Exact installation and effect parameters must be checked in AE 25.6. Adobe’s online catalog is continually updated and does not by itself prove historical 25.6 availability; entries labeled obsolete should not be the default for new designs.','',
+  'Orientation directory of effects and expression controls, including compatibility-only effects. Exact installation and effect parameters must be checked in AE 26.5. Adobe’s online catalog is continually updated and can also describe Beta functionality; entries labeled obsolete should not be the default for new designs.','',
   '| Effect | Category | Purpose |','|---|---|---|']
  for fx in d['effects']:out.append('| '+ ' | '.join(md(fx.get(k,'')).replace('|','\\|') for k in ['name','category','summary'])+' |')
  out+=['','---','','## Windows shortcuts','',
@@ -94,26 +101,24 @@ def markdown(d):
  out+=['','---','','## Glossary','', '| Term | Definition |','|---|---|']
  for t in d['glossary']:out.append('| '+' | '.join(md(t.get(x,'')).replace('|','\\|') for x in ['term','definition'])+' |')
  out+=['','---','','## Sources and version restrictions','',
- 'Adobe documentation is rolling; release notes and feature-history pages establish the 25.6 cutoff. The guide includes original explanatory content; no Adobe images, proprietary plugin binaries or training videos are bundled.','']
+ 'Adobe documentation is rolling; release notes, feature-specific pages and feature history establish the stable 26.5 boundary. The guide includes original explanatory content; no Adobe images, proprietary plugin binaries or training videos are bundled.','']
  for k,s in d['sources'].items():out.append(f"- **{s['title']}** — {s['url'] or '(user supplied document)'} — {s['note']}")
- out+=['','### Explicitly later than 25.6','',
- '- **26.0:** native parametric meshes, bundled Substance materials, Unmult, new audio Compressor/Gate/Distortion, variable-font axis animation, native SVG-to-shape workflow, other 26.0 additions.',
- '- **26.2:** AI-powered Object Matte, Quick Apply, proportional scrubbing.',
- '- **26.3:** Curl Noise, revamped Mask Tracker, Advanced 3D in-engine depth of field, copy frame to clipboard.',
- '- **26.5:** new guides, effect color labels, OCIO 2.5.1/ACES 2.0 configurations.',
- '', '**Limitations:** This guide has not been certified via a live AE 25.6 installation. Not every effect parameter, third-party extension, external codec, scripting API corner case or proprietary asset workflow can be guaranteed complete. Test the exact installed version and always verify rendered deliverables.','']
+ out+=['','### Stable 26.5 and Beta boundary','',
+ 'Stable workflows include Quick Apply, Object Matte with disk caching, parametric meshes, Substance materials, variable-font axes, SVG import/paste, Unmult, Curl Noise, Compressor/Gate/Distortion, Advanced 3D DOF, effect labels, responsive guides and bundled ACES 2.0.',
+ '', 'Beta watchlist at the research cutoff: Contour Paint, De-esser, AI Assistant, layers as material sources, materials on 3D text/shapes, editable Illustrator text, Quick Set Anchor, generalized viewer Alt-drag duplication, PNG compression selection, Account/Stock panels and enhanced Auto-Save.',
+ '', '**Limits:** The reader is browser-tested separately from the product instructions. No licensed Windows AE 26.5 installation was available to execute every lesson or verify every installed plug-in parameter. External fonts, codecs, materials and hardware can change results; verify final deliverables.','']
  return '\n'.join(out)
 
 
 def csv_text(entries,fields):
- buffer=io.StringIO(newline='');w=csv.DictWriter(buffer,fieldnames=fields,extrasaction='ignore');w.writeheader();w.writerows(entries);return buffer.getvalue()
+ buffer=io.StringIO(newline='');w=csv.DictWriter(buffer,fieldnames=fields,extrasaction='ignore',lineterminator='\n');w.writeheader();w.writerows(entries);return buffer.getvalue()
 
 
 def make_zip(outdir):
  names=['index.html','ALL_CONTENT.md','manual_data.json','shortcuts.csv','effects.csv','README.md','AUDIT.md','AGENT_HANDOFF.md',
     'build.py','content.py','validate.py','web/template.html','web/styles.css','web/app.js',
     'data/shortcuts_seed.json','data/effects_seed.json','data/troubleshooting_seed.json','data/glossary_seed.json',
-    'tests/test_manual.py','tests/test_second_pass.py','tests/test_final_pass.py','tests/browser_logic.cjs','tools/curate_starter.py']
+    'tests/test_manual.py','tests/test_second_pass.py','tests/test_final_pass.py','tests/test_26_5.py','tests/browser_check.py','tests/legacy_progress.json','tests/browser_logic.cjs','tools/curate_starter.py','tools/check_sources.py','data/source_checks.json','samples/README.md','samples/badge.svg','samples/stats.json','samples/characters.csv','samples/pulse.wav']
  # Every payload file is hashed, so extracted contents can be independently checked on Linux.
  hashes=[]
  for name in names:
@@ -127,7 +132,7 @@ def make_zip(outdir):
   for name in names:
    file=(outdir/name if name in ['index.html','ALL_CONTENT.md','manual_data.json','shortcuts.csv','effects.csv','MANIFEST.sha256'] else ROOT/name)
    if not file.is_file():raise FileNotFoundError(file)
-   info=zipfile.ZipInfo(name,(2025,11,11,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16
+   info=zipfile.ZipInfo(name,(2026,9,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16
    zipf.writestr(info,file.read_bytes(),compress_type=zipfile.ZIP_DEFLATED,compresslevel=9)
  return path
 
@@ -149,6 +154,6 @@ def build(outdir):
  return d
 
 if __name__=='__main__':
- parser=argparse.ArgumentParser(description='Rebuild After Effects 25.6 Windows offline manual (Python stdlib only).')
+ parser=argparse.ArgumentParser(description='Rebuild After Effects 26.5 Windows offline manual (Python stdlib only).')
  parser.add_argument('--output-dir',type=pathlib.Path,default=ROOT,help='Where to write generated deliverables (defaults to project directory).')
  args=parser.parse_args();build(args.output_dir.resolve())

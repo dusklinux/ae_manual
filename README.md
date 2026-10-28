@@ -1,89 +1,73 @@
-# After Effects 25.6 — Complete Windows Learning Manual
+# After Effects 26.5 — Windows offline learning manual
 
-An offline, **Linux- and Windows-readable**, step-by-step Windows After Effects **25.6** learning environment modeled on the organization and navigation of the supplied Factorio offline reference project. This is original instructional material, not an Adobe publication or a redistribution of copyrighted Adobe documentation.
+Open **[index.html](index.html)** in Firefox, Chromium or Edge. The reader works on Linux and Windows, including directly from `file://`, with no server, installation or internet connection. The After Effects instructions target **26.5 stable on Windows**, default English keyboard. Research cutoff: **28 October 2026**.
 
-## Begin here
+This edition replaces the repository’s former 25.6 target. It includes modern stable tools rather than excluding the 26.x series. Adobe’s release notes identify 26.5 as the September 2026 release; Beta-only functionality has a separate watchlist.
 
-1. **On Linux (recommended for reading):** extract the ZIP with your file manager or `unzip after_effects_25_6_windows_offline_manual.zip -d ae_manual`. Open `ae_manual/index.html` with a modern Firefox- or Chromium-based browser. No installation, server, JavaScript package, or internet is required for normal reading.
-2. **On Windows:** extract the same ZIP in File Explorer and open `index.html` in a current browser. All After Effects menu, setup, and keyboard instructions in the manual refer only to Windows.
-3. **Across Linux and a Windows VM:** browser progress is not synchronized between host and guest. Use **Progress & settings → Export progress (.json)** and **Import progress (.json)** to move it. Some Linux/Windows browser profiles may block or isolate local storage for `file://` pages; export regularly. If local storage is blocked, the manual remains readable and exports of progress still work.
-4. **Fallback:** open `ALL_CONTENT.md` in a Markdown viewer for read-only, no-JavaScript access on either operating system.
-5. Choose **Step-by-step walkthrough** and begin at Lesson 01. The six stages progress from START → FOUNDATIONS → INTERMEDIATE → ADVANCED → DELIVERY → CAPSTONE, with explicit end-of-stage readiness challenges. Complete each action in a real AE 25.6 project and check the step off in the guide.
-6. Use **Deep topic library** when you need the reasoning behind an action, **Practical recipes** for complete production tasks, or **Effects / Shortcuts / Troubleshooting** as a desk reference.
-7. When available, your progress is saved locally by the browser. Use **Progress & settings → Export progress** to back up your progress as JSON, and **Import progress** to restore it. This is not synced across browsers or PCs.
+## Start learning
 
-For a simple read-only guide, open **`ALL_CONTENT.md`** in any Markdown reader. The two CSV files provide searchable, sortable shortcut and effect directories. `manual_data.json` has the same content in structured form.
+1. Use **Step-by-step walkthrough**: 40 lessons through six stages, from your first composition to a collected, verified final project.
+2. Perform each action in AE, then try the independent exercise and self-check. The checkboxes record your own progress; they do not inspect an AE project.
+3. Open related **Deep topics** for explanations, or **Practical recipes** for a complete production task. Recipes link to their prerequisite lesson.
+4. Use global search for lessons, topics, recipes, effects, shortcuts, troubleshooting and glossary. Reference search results open the matching entry.
+5. Use **Progress & settings** for larger text, contrast, one-step reading and JSON backups. Export before moving between browsers, machines or a Linux host and Windows guest. File-URL browser storage may be isolated or blocked; an exported JSON is your portable backup.
 
-## What's included
+**Read-only fallback:** [ALL_CONTENT.md](ALL_CONTENT.md) contains the written curriculum and reference with internal links and per-topic sources. Reading needs no Python or Node.js. For the portable download, extract `after_effects_26_5_windows_offline_manual.zip` and open its `index.html`.
 
-- 35 ordered lessons in six monotonic difficulty stages, with explicit action sequences, experiments, self-checks, stage gates, and common errors.
-- 78 technical deep-dives with multiple sections and practical experiments.
-- 27 complete production recipes ordered by their suggested prerequisite lesson, 35 quiz questions, conceptual diagrams and a frame-count/export lab.
-- Reference catalogs for native/bundled effects (285 entries), Windows key bindings and mouse gestures (373 entries), troubleshooting (67 entries), and a technical glossary (145 terms).
-- Search, browse-by-category, reading preferences, optional one-step-at-a-time mode, lesson completion tracking and progress backup/restore.
-- Original editable sources plus a reproducible, standard-library-only Python build and validation scripts.
+## Coverage
 
-Counts are reported from `manual_data.json`; they can change when the sources are revised and rebuilt.
+- 40 ordered lessons, 100 explanatory topics and 34 practical recipes, with experiments, verification and recovery instructions.
+- 300 effect/control records, 386 Windows shortcut/gesture records, 67 troubleshooting cases, 155 glossary terms and 35 quiz questions. Counts describe the authored directory, including legacy and tool-generated records, rather than every installed plug-in parameter.
+- Quick Apply, Object Matte and disk caching, responsive guides, effect labels, Proportional Scrubbing, SVG import/paste, variable-font animation, native meshes, SBSAR materials/displacement, Advanced 3D camera DOF, Curl Noise, Unmult, modern audio effects and ACES 2.0.
+- Rendering, alpha, color, sound, tracking, keying, brush-guided roto, MOGRTs, expressions/data, reusable rigs, performance diagnosis and portable project delivery.
+- Original [practice assets](samples/README.md): SVG, JSON, CSV and a short PCM pulse track. Footage-based exercises still require appropriate footage; font/material exercises require those dependencies prepared before going offline.
 
-## Version and platform rules
+Adobe pages can mix stable and Beta material. Contour Paint, De-esser, AI Assistant, broader material sources, editable Illustrator text and other Beta items are described separately, not taught as stable 26.5 requirements. The application has not been certified by executing every lesson in licensed Windows AE. See [AUDIT.md](AUDIT.md) for evidence and limits.
 
-- The **application lessons** target **Adobe After Effects 25.6**, released November 2025, **on Windows**, with the default English shortcut layout. The **offline reader** is platform-neutral HTML and Markdown, designed for Linux and Windows.
-- Use a security-patched 25.6.x build where available; Adobe security bulletin APSB26-78 (14 July 2026) identifies 25.6.6, after updates 25.6.4 and 25.6.5. Applying security patches does not mean using 26.x features.
-- The supplied starter AE note documents **26.5**. It was used only as a coverage/terminology seed. Items introduced after 25.6 are intentionally removed from instructions and isolated in the version-audit notes.
-- Adobe's online documentation evolves with later versions. The 25.6 release history and version-specific system requirements are used for feature gating; current Adobe articles are references, not proof that every described UI control existed in 25.6.
-- Some less-common shortcuts are panel-specific, may be remapped, or are ambiguous across Adobe's references. **Edit → Keyboard Shortcuts** in the installed 25.6 program is the final check.
-- The effects list is a *broad orientation directory*, not a promise that all effect variants or legacy plug-ins are installed, nor a per-parameter catalog for third-party products. Check **Effects & Presets** in your own build.
-- Media, fonts, plugins, codecs, GPU hardware, source footage, and project settings affect actual outputs. Test important techniques in the version you have installed and inspect final renders.
+## Existing progress
 
-Not part of 25.6: features originating in the 26.x series such as Quick Apply, Object Matte, native SVG-to-shape import, native parametric meshes, Unmult, Curl Noise, advanced 3D in-engine depth of field, variable-font-axis animation, revised 26.5 guides, or the 26.5 bundled ACES 2.0 configurations.
+Current exports use `manualVersion: "26.5"`, `edition: 2`. Old 25.6 edition-1 exports remain importable. On the same file location/browser, existing 25.6 local storage is migrated if no current record exists; its original record is retained. Unchanged lesson IDs and action positions are preserved. The installation lesson, changed Quick Apply/ACES/native-mesh actions and rewritten quiz question 2 are reset for review. New lessons start unchecked. Migration does not claim older completed exercises prove current-version proficiency.
 
-## Folder guide
+## Files and rebuilding
 
 | File | Purpose |
 |---|---|
-| `index.html` | Single-file offline browser manual, recommended first entry point |
-| `ALL_CONTENT.md` | Whole written guide for Markdown readers and print workflows |
-| `manual_data.json` | Machine-readable content and provenance |
-| `MANIFEST.sha256` | SHA-256 checksums of all ZIP payload files (except the manifest itself); on Linux run `sha256sum -c MANIFEST.sha256` in the extracted folder |
-| `shortcuts.csv`, `effects.csv` | Standalone reference indexes |
-| `content.py` | Authoring source for curriculum, topics, recipes, extra glossary/troubleshooting, quiz and sources |
-| `data/*_seed.json` | Curated reference collections from the provided AE note, expanded for the 25.6 manual |
-| `web/template.html`, `web/styles.css`, `web/app.js` | Single-file app source |
-| `build.py`, `validate.py`, `tests/test_manual.py`, `tests/browser_logic.cjs` | Generation, verification and structural tests |
-| `AUDIT.md` | Version boundary, sourcing decisions, coverage and limitations |
-| `AGENT_HANDOFF.md` | Notes for future guide editors |
-| `tools/curate_starter.py` | Optional one-time inventory extraction from a user-supplied AE note; not needed to rebuild |
+| `index.html`, `ALL_CONTENT.md` | Offline browser reader and Markdown reference |
+| `manual_data.json`, `effects.csv`, `shortcuts.csv` | Structured exports |
+| `content.py`, `data/*_seed.json` | Editable teaching material and reference records |
+| `web/*` | Reader source embedded into the HTML |
+| `build.py`, `validate.py`, `tests/*` | Reproducible build and regression checks |
+| `MANIFEST.sha256` | Checksums of ZIP payload files; excludes itself and the ZIP |
+| `data/source_checks.json` | HTTP source-retrieval record; status is not factual certification |
+| `samples/*` | Original offline practice material and usage instructions |
+| `AGENT_HANDOFF.md`, `AUDIT.md` | Maintenance instructions, findings and verification limits |
 
-## Rebuild and verify
+Development targets **Python 3.15+**. The normal build uses only its standard library and committed inputs; no network access is needed:
 
-On Linux or Windows with Python 3.10+ (authoring/rebuilding only; NOT needed to read):
-
-```text
-cd /path/to/ae_manual  # Linux; or cd to the extracted folder on Windows
-python build.py
-python validate.py
-python -m unittest discover -s tests -v
+```sh
+python3 build.py
+python3 validate.py
+python3 -m unittest discover -s tests -v
 ```
 
-Optional on any operating system with Node.js installed (not required for reading): `node --check web/app.js` and `node tests/browser_logic.cjs` run JavaScript syntax and simulated route/state tests. They do not replace a real-browser test.
+Use `python3 build.py --output-dir /path/to/output` for separate deliverables. The ZIP includes sources, assets and tests and can rebuild itself after extraction. Edit sources, then rebuild; generated HTML/JSON/Markdown/CSVs and checksums must agree. On Linux, check the extracted payload with `sha256sum -c MANIFEST.sha256`.
 
-The builder requires no third-party Python packages or web access and recreates the `index.html`, reference exports and ZIP. Do not edit these generated files directly; make lasting content edits in `content.py`, `data/*.json`, or `web/*` and rebuild.
+Optional JavaScript checks require Node.js:
 
-## Source and safety policy
+```sh
+node --check web/app.js
+node tests/browser_logic.cjs
+```
 
-Links inside the offline manual lead to public Adobe documentation if you click them; the manual itself makes **no network requests**. There are no external fonts, JavaScript libraries, telemetry, embedded third-party files, or proprietary teaching videos. Your lesson checks and quiz answers stay in browser storage unless you explicitly export the progress JSON.
+Real-browser checks use Playwright as a **development-only** dependency:
 
-This manual is a substantial learning foundation, but it has **not** been run against every menu, installed plug-in, media format, renderer or possible Windows hardware combination in a live AE 25.6 installation. For a discrepancy, prefer your installed application, then Adobe's historically relevant documentation and release history.
+```sh
+python3 -m venv .venv
+.venv/bin/pip install playwright
+.venv/bin/playwright install chromium firefox
+.venv/bin/python tests/browser_check.py --browser both
+```
 
-## Second-pass audit notes
+On Windows use `.venv\Scripts\python` / `.venv\Scripts\playwright`. The runner uses system Chromium on Linux when available, otherwise Playwright’s installed browser. It opens `file://` with networking disabled. `tools/check_sources.py` is an optional online HTTP provenance check; some Adobe requests return HTTP 403 in automation, so those responses cannot certify link health or content. `tools/curate_starter.py --notes PATH` reports note headings/table coverage without overwriting curated IDs.
 
-The revised edition corrects an opacity-keyframe teaching sequence, fills gaps in the effects reference (including expression controls, 3D Camera Tracker, Echo, CC Rainfall and CC Snowfall), improves navigation in the Markdown manual, clarifies cross-platform reading, protects malformed URL fragments, and uses exact non-integer broadcast frame rates in the calculator. Runtime browser automation was restricted in the auditing environment; HTML/JS and data checks are supplied, but live browser/device testing and every AE 25.6 UI action remain unverified. See `AUDIT.md`.
-
-## Final pass changes (28 October 2026)
-
-- Reordered the old scripting lesson ahead of rendering and delivery, preserving internal lesson IDs and exported progress keys while renumbering displayed lesson headings.
-- Added a six-stage learning roadmap, practical readiness challenge for each stage, and suggested prerequisites for recipes; these are advisory, not artificial access locks.
-- Fixed an ineffective timeline trim exercise and clarified the single-layer-only “Leave all attributes” precomposition option.
-- Corrected the 25.6.x security-patch reference to Adobe’s July 2026 25.6.6 bulletin.
-- Split combined effect categories into clearer filters.
-- Revalidated all built files and the ZIP. Browser runtime smoke testing was attempted but blocked by the execution environment for both local file and local HTTP origins, so actual Linux/Windows browser behavior and live AE execution are not certified.
+The manual contains original explanations and optional public source links. It bundles no Adobe documentation pages, footage, fonts, plug-in binaries, telemetry or external runtime assets.

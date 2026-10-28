@@ -1,23 +1,53 @@
-"""Original AE 25.6 Windows learning material. No third-party content copied verbatim."""
+"""Original AE 26.5 Windows learning material. No third-party content copied verbatim."""
 
 SOURCES = {
- 'release': {'title':'Adobe After Effects 25.6 release announcement (Nov 2025)', 'url':'https://community.adobe.com/announcements-527/after-effects-25-6-is-now-available-to-download-60888','kind':'version','note':'25.6-specific feature boundary.'},
- 'history': {'title':'Adobe-maintained After Effects feature history','url':'https://github.com/AdobeDocs/after-effects-feature-history','kind':'version','note':'Version introductions. Later releases deliberately excluded.'},
+ 'immersive': {'title': 'Adobe: Immersive video effects', 'url': 'https://helpx.adobe.com/after-effects/desktop/immersive-video-and-vr/immersive-video-effects/vr-effects.html', 'kind': 'reference', 'note': 'Rolling Adobe reference; distinguish stable controls from Beta.'},
+ 'layer-styles': {'title': 'Adobe: Blending modes and Layer Styles', 'url': 'https://helpx.adobe.com/after-effects/desktop/work-with-layers/work-with-layer-blending-modes/blending-modes-layer-styles.html', 'kind': 'reference', 'note': 'Rolling Adobe reference; distinguish stable controls from Beta.'},
+ 'text-outlines': {'title': 'Adobe: Create masks and outlines', 'url': 'https://helpx.adobe.com/after-effects/desktop/drawing-painting-and-paths/work-with-masks/create-masks.html', 'kind': 'reference', 'note': 'Rolling Adobe reference; distinguish stable controls from Beta.'},
+ 'whats-new': {'title': 'Adobe: What is new through 26.5', 'url': 'https://helpx.adobe.com/after-effects/desktop/what-s-new/whats-new.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'beta': {'title': 'Adobe: After Effects Beta (separate from stable)', 'url': 'https://helpx.adobe.com/after-effects/desktop/what-s-new/after-effects-beta.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'known-issues': {'title': 'Adobe: Known issues by affected release', 'url': 'https://helpx.adobe.com/after-effects/desktop/troubleshooting/fixed-and-known-issues/known-issues-after-effects.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'quick-apply': {'title': 'Adobe: Quick Apply', 'url': 'https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/animation-keyframes/quick-apply.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'object-matte': {'title': 'Adobe: AI-powered Object Matte', 'url': 'https://helpx.adobe.com/after-effects/desktop/roto-brush-and-refine-matte/roto-brush/object-matte.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'guides': {'title': 'Adobe: Guide creation and management', 'url': 'https://helpx.adobe.com/after-effects/desktop/view-and-preview/preview-video-and-audio/guide-creation-and-management.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'effect-controls': {'title': 'Adobe: Effect Controls and instance labels', 'url': 'https://helpx.adobe.com/after-effects/desktop/apply-effects-and-animation-presets/effects-and-animation-presets/effects-animation-presets-overview.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'effects-overview': {'title': 'Adobe: Effect masks, opacity and animation presets', 'url': 'https://helpx.adobe.com/after-effects/desktop/apply-effects-and-animation-presets/effects-and-animation-presets/effects-animation-presets-overview.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'proportional': {'title': 'Adobe: Proportional Scrubbing', 'url': 'https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/animation-keyframes/proportional-scrubbing-in-timeline.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'layers': {'title': 'Adobe: Selecting and arranging layers', 'url': 'https://helpx.adobe.com/after-effects/desktop/work-with-layers/select-and-arrange-layers/selecting-arranging-layers.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'svg': {'title': 'Adobe: SVG import and clipboard transfer', 'url': 'https://helpx.adobe.com/after-effects/desktop/import-files/import-svg-files/import-svg-files.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'variable-fonts': {'title': 'Adobe: Working with Variable Font Axes', 'url': 'https://helpx.adobe.com/after-effects/desktop/variable-font-axes/work-with-variable-font-axes/working-with-variable-font-axes.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'meshes': {'title': 'Adobe: Create parametric meshes', 'url': 'https://helpx.adobe.com/after-effects/desktop/work-with-3d-composition/create-parametric-meshes/working-with-parametric-meshes.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'substance': {'title': 'Adobe: Apply Substance 3D materials', 'url': 'https://helpx.adobe.com/after-effects/desktop/work-with-3d-composition/work-with-materials/apply-substance-3d-materials.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'material-properties': {'title': 'Adobe: Modify materials and displacement', 'url': 'https://helpx.adobe.com/after-effects/desktop/work-with-3d-composition/work-with-materials/modify-materials-properties-of-3d-layers.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'advanced-dof': {'title': 'Adobe: Advanced 3D in-engine depth of field', 'url': 'https://helpx.adobe.com/after-effects/desktop/work-with-3d-composition/work-with-3d-scene-depth-data/enable-in_engine-depth-of-field-in-advanced-3d.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'noise': {'title': 'Adobe: Noise, grain and Curl Noise', 'url': 'https://helpx.adobe.com/after-effects/desktop/apply-effects-and-animation-presets/list-of-effects/noise-grain-effects.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'keying-effects': {'title': 'Adobe: Keying and Unmult', 'url': 'https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/work-with-keying-effects/keying-effects.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'audio-effects': {'title': 'Adobe: Audio effects', 'url': 'https://helpx.adobe.com/after-effects/desktop/apply-effects-and-animation-presets/list-of-effects/audio-effects.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'copy-frame': {'title': 'Adobe: Copy Frame to Clipboard', 'url': 'https://helpx.adobe.com/after-effects/desktop/view-and-preview/copy-frames/copy-frame-to-clipboard.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'null-controllers': {'title': 'Adobe: Native null controllers', 'url': 'https://helpx.adobe.com/after-effects/desktop/drawing-painting-and-paths/null-controllers/create-nulls-for-positional-properties-and-paths.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'profiler': {'title': 'Adobe: Composition Profiler', 'url': 'https://helpx.adobe.com/after-effects/desktop/work-with-compositions/composition-profiler/composition-profiler.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'compressed-cache': {'title': 'Adobe: Lossless compressed playback', 'url': 'https://helpx.adobe.com/after-effects/desktop/view-and-preview/preview-video-and-audio/lossless-compressed-playback.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'preview': {'title': 'Adobe: Previewing and Region of Interest', 'url': 'https://helpx.adobe.com/after-effects/desktop/view-and-preview/preview-video-and-audio/previewing.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'effect-manager': {'title': 'Adobe: Effect Manager', 'url': 'https://helpx.adobe.com/after-effects/desktop/apply-effects-and-animation-presets/effects-and-animation-presets/effect-manager.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'data': {'title': 'Adobe: Data-driven animations', 'url': 'https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/data-driven-animation/data-driven-animations.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'h264': {'title': 'Adobe: Native H.264 Render Queue output', 'url': 'https://helpx.adobe.com/after-effects/desktop/render-and-export/export-h-264-from-the-after-effects/exporting-h264-from-the-after-effects-render-queue.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'mask-tracking': {'title': 'Adobe: Mask Tracking', 'url': 'https://helpx.adobe.com/after-effects/desktop/animate-in-after-effects/track-mask/rigid-mask-tracking.html', 'kind': 'reference', 'note': 'Stable 26.5 reference; rolling page, Beta labels still apply. See AUDIT.md for research evidence.'},
+ 'release': {'title':'Adobe: After Effects release notes (26.5, September 2026)', 'url':'https://helpx.adobe.com/after-effects/desktop/what-s-new/release-notes-after-effects.html','kind':'version','note':'Stable target: 26.5. Rechecked 2026-10-28; Beta remains separate.'},
+ 'history': {'title':'Adobe-maintained After Effects feature history','url':'https://github.com/AdobeDocs/after-effects-feature-history','kind':'version','note':'Historical introduction dates; current stable workflows target 26.5.'},
  'fixes': {'title':'Adobe: fixed issues in After Effects','url':'https://helpx.adobe.com/after-effects/desktop/troubleshooting/fixed-and-known-issues/fixed-issues.html','kind':'version','note':'Includes historical 25.6 fixes; document is rolling.'},
- 'requirements': {'title':'Adobe: After Effects 25.x Windows requirements','url':'https://helpx.adobe.com/after-effects/desktop/get-started/technical-requirements/2025.html','kind':'version','note':'Historic 25.x page, not current 26.x requirements.'},
- 'shortcuts': {'title':'Adobe: After Effects keyboard shortcuts reference','url':'https://helpx.adobe.com/after-effects/desktop/get-started/keyboard-shortcuts/keyboard-shortcuts-reference.html','kind':'reference','note':'Rolling shortcut page; compare against 25.6 installed editor.'},
+ 'requirements': {'title':'Adobe: After Effects 26.x system requirements','url':'https://helpx.adobe.com/after-effects/desktop/get-started/technical-requirements/system-requirements.html','kind':'version','note':'Current Windows requirements applicable to 26.5; actual CPU/GPU architecture matters.'},
+ 'shortcuts': {'title':'Adobe: After Effects keyboard shortcuts reference','url':'https://helpx.adobe.com/after-effects/desktop/get-started/keyboard-shortcuts/keyboard-shortcuts-reference.html','kind':'reference','note':'Rolling shortcut page; compare against 26.5 installed editor.'},
  'help': {'title':'Adobe: After Effects documentation index','url':'https://helpx.adobe.com/after-effects/desktop.html','kind':'reference','note':'Rolling guide. Later-release features may appear.'},
- 'effects': {'title':'Adobe: effect list and capabilities','url':'https://helpx.adobe.com/after-effects/desktop/apply-effects-and-animation-presets/effects-and-animation-presets/effect-list.html','kind':'reference','note':'Rolling list; cross-check 25.6 installed Effects & Presets.'},
+ 'effects': {'title':'Adobe: effect list and capabilities','url':'https://helpx.adobe.com/after-effects/desktop/apply-effects-and-animation-presets/effects-and-animation-presets/effect-list.html','kind':'reference','note':'Rolling list; cross-check 26.5 installed Effects & Presets.'},
  'expressions': {'title':'Adobe: expression language reference','url':'https://helpx.adobe.com/after-effects/desktop/work-with-expressions/expression-language-reference/expression-language-reference.html','kind':'reference','note':'JavaScript-like expression syntax; rolling documentation.'},
  'expressions-basics': {'title':'Adobe: understanding expression language','url':'https://helpx.adobe.com/after-effects/desktop/work-with-expressions/expression-basics/expression-language.html','kind':'reference','note':'Expressions evaluate properties; distinct from ExtendScript automation.'},
- 'color': {'title':'Adobe: color management','url':'https://helpx.adobe.com/after-effects/desktop/adjust-colors/color-management/color-management.html','kind':'reference','note':'25.6 supports ICC and OCIO/ACES 1.x; not 26.5 ACES 2.0 bundle.'},
- 'ocio': {'title':'Adobe: OpenColorIO and ACES','url':'https://helpx.adobe.com/after-effects/desktop/adjust-colors/opencolorio-and-aces-color-management/opencolorio-aces-color-management.html','kind':'reference','note':'Contains 26.5 updates; use only pre-26.5 functions.'},
+ 'color': {'title':'Adobe: color management','url':'https://helpx.adobe.com/after-effects/desktop/adjust-colors/color-management/color-management.html','kind':'reference','note':'ICC and OCIO pipelines; 26.5 bundles ACES 2.0 configurations.'},
+ 'ocio': {'title':'Adobe: OpenColorIO and ACES','url':'https://helpx.adobe.com/after-effects/desktop/adjust-colors/opencolorio-and-aces-color-management/opencolorio-aces-color-management.html','kind':'reference','note':'26.5 uses OCIO 2.5.1 with ACES 2.0 CG v4.0 and Studio v4.0.'},
  'mogrt': {'title':'Adobe: create Motion Graphics templates','url':'https://helpx.adobe.com/after-effects/desktop/motion-graphics/work-with-motion-graphics-templates/creating-motion-graphics-templates.html','kind':'reference','note':'Essential Graphics/Properties/MOGRT general technique; rolling.'},
  'memory': {'title':'Adobe: memory and storage','url':'https://helpx.adobe.com/after-effects/desktop/memory-storage-performance/memory-and-storage/memory-storage1.html','kind':'reference','note':'Cache behavior; preference nomenclature varies by version.'},
  'multiframe': {'title':'Adobe: multi-frame rendering','url':'https://helpx.adobe.com/after-effects/desktop/render-and-export/multi-frame-rendering/multi-frame-rendering.html','kind':'reference','note':'Multi-Frame Rendering predates 25.6.'},
-'security25': {'title': 'Adobe security bulletin APSB26-78 (25.6.6 security update, July 2026)', 'url': 'https://www.adobe.com/trust/security/products/after-effects/apsb26-78.html', 'kind': 'Official security bulletin', 'note': 'Adobe published 25.6.6 on July 14, 2026, after 25.6.4 and 25.6.5. Prefer the latest available security-patched 25.6.x build; this guide still excludes all 26.x-only features.'},
  'precompose': {'title':'Adobe: Precomposing, nesting, and pre-rendering','url':'https://helpx.adobe.com/after-effects/desktop/work-with-compositions/precomposing-and-nesting/precomposing-nesting-pre-rendering.html','kind':'reference','note':'Leave all attributes is not available for multiple layers, shape layers, or text layers; Adobe Help is rolling.'},
- 'user-notes': {'title':'User-supplied AE Notes (26.5 starting point)','url':'','kind':'user material','note':'Adapted as a topic inventory and terminology starting point; features after 25.6 removed.'},
+ 'user-notes': {'title':'User-supplied AE Notes (26.5 starting point)','url':'','kind':'user material','note':'Adapted as a topic inventory and terminology starting point; Stable 26.5 coverage seed; verify factual claims against Adobe sources.'},
 }
 
 # Chapters progress IDs are permanent. Keep stable when editing exercises.
@@ -29,17 +59,17 @@ def lesson(id,title,phase,why,steps,check,experiment='',pitfalls='',topics='',so
       experiment=experiment, pitfalls=[s.strip() for s in pitfalls.split('|') if s.strip()],
       topics=topics.split(),sources=sources.split(),optional=optional,diagram=diagram))
 
-lesson('install','01 · Install, identify and prepare AE 25.6','START',
-'Use the specified 25.6 build on Windows, with a reproducible workspace and no accidental version mismatch.', '''
-Open Creative Cloud Desktop on Windows. Locate After Effects and check the installed version through Help → About After Effects. The target is 25.6, not 26.x or a Beta build; available older versions depend on Adobe distribution policies.
-Before a large project, confirm the Windows 25.x system requirements: a supported 64-bit Windows release, AVX2-capable CPU, enough RAM, disk space and GPU support. In 25.6, OpenCL 2.0 is required where OpenCL is used; older 1.2 support is discontinued.
+lesson('install','01 · Install, identify and prepare AE 26.5','START',
+'Use the specified 26.5 stable build on Windows, with a reproducible workspace and no accidental version mismatch.', '''
+Open Creative Cloud Desktop on Windows. Locate After Effects and check the installed version through Help → About After Effects. The target is 26.5 stable (September 2026). Beta is a separate installation; its tools are not automatically part of stable.
+Before a large project, compare your Windows version, CPU architecture, RAM, GPU/driver and free storage with Adobe’s 26.5 requirements. AVX2 is required for supported Intel/AMD systems; Windows on Arm has its own supported Snapdragon hardware. A Windows VM must expose the required CPU/GPU capabilities; successful launch alone does not establish 3D performance.
 Start AE and identify Project, Composition viewer, Timeline, Effect Controls, Effects & Presets, Properties, Preview and Render Queue panels. Hover any panel and tap the backtick key (`) to maximize/restore it.
 Choose Window → Workspace, select a standard layout and use Reset to Saved Layout if panels are lost. Use Edit → Preferences to configure auto-save, disk cache and available memory without starving Windows.
 Create a dedicated folder such as D:\\AE_Learning\\01_First_Project. Reserve an Assets subfolder, an Output subfolder and a project backup folder. Avoid relying on temporary Downloads files.
 Open Edit → Keyboard Shortcuts (Ctrl+Alt+') to verify bindings on your installed version and keyboard layout. Save a custom preset only if you intentionally change a shortcut.
-''', 'I can verify 25.6 and locate every central panel.|I have an organized Windows project folder.|I know where the shortcut editor is.',
+''', 'I can verify 26.5 and locate every central panel.|I have an organized Windows project folder.|I know where the shortcut editor is.',
 'Break and restore a workspace layout, then find the Timeline and Effects & Presets in under 30 seconds.',
-'Current Adobe Help pages show 26.x interface features; they are not proof of 25.6 availability.|Do not delete the disk-cache folder while AE is actively writing to it.',
+'Adobe Help can mix stable and Beta features; confirm the release label before using a new command.|Do not delete the disk-cache folder while AE is actively writing to it.',
 'interface version-workflow performance project-management', 'release history requirements shortcuts memory',diagram='screen')
 
 lesson('logic','02 · Understand projects, comps, layers and pixels','START',
@@ -191,12 +221,12 @@ Create a solid with Fractal Noise; apply Levels, Tint, Turbulent Displace and Gl
 Open Effect Controls with F3. Rename each effect instance by its purpose. Toggle its fx switch; note that disabling an effect is nondestructive while Ctrl+Shift+E removes all effects from selected layers.
 Make an Adjustment Layer (Ctrl+Alt+Y) and apply Curves. Put it above two footage layers; toggle layer order and note which lower pixels it modifies.
 Compare an effect applied to a footage layer, the same effect on a precomp, and an effect on an adjustment layer. They do not use identical inputs in all cases.
-Open the Effect Manager if a plugin appears missing or disabled. Use Effects & Presets search rather than assuming every installed effect has an application-wide search launcher; Quick Apply (Ctrl+Enter) is 26.2, not 25.6.
-Test effect compatibility at 8, 16 and 32 bpc in Project Settings. An effect may process fewer bit depths or be CPU-only; check supported modes for the actual installed 25.6 effect.
+Press Ctrl+Enter to open Quick Apply. Search e:glow, p: for presets or m: for menu commands; Enter applies the selected result. Use Effect → Manage Effects if an installed effect is disabled.
+Test effect compatibility at 8, 16 and 32 bpc in Project Settings. An effect may process fewer bit depths or be CPU-only; check supported modes for the actual installed 26.5 effect.
 ''', 'I can rearrange effects to change render results.|I understand adjustment layers.|I can distinguish bypass from deletion.',
 'Build a cloudy glow effect with at least four effects; save an Animation Preset for reuse.',
-'Effects & Presets search is not the 26.2 Quick Apply launcher.|An effect called a 3D effect does not necessarily create an actual 3D layer.',
-'effect-order effects adjustment-effects',diagram='effects')
+'In Quick Apply, Ctrl+Enter applies to a new layer and Ctrl+Alt+Enter to a new adjustment layer; outside it Ctrl+Enter opens the launcher.|An effect called a 3D effect does not necessarily create an actual 3D layer.',
+'effect-order effects adjustment-effects quick-apply effect-labels','effects effects-overview quick-apply',diagram='effects')
 
 lesson('blur','14 · Blur, glow, noise and depth maps','INTERMEDIATE',
 'Understand the purpose of blur and procedural textures instead of applying random presets.', '''
@@ -208,8 +238,8 @@ Make a glow source by isolating bright pixels through Levels, then apply Glow wi
 Animate Fractal Noise Evolution and Offset Turbulence. Use it as a texture, matte, displacement driver or blend overlay, checking noise aliasing at final resolution.
 ''', 'I can choose ordinary vs lens-like blur.|I can use a grayscale map to deform or blur.|I can keep a glow controllable.',
 'Build a heat-haze transition using Fractal Noise as an animated Displacement Map.',
-'26.3 Curl Noise is not present in 25.6.|Too much glow can destroy edge contrast and alpha quality.',
-'blur procedural depth-maps',diagram='effects')
+'Curl Noise is available in 26.5 for flowing procedural textures; compare it with Fractal Noise rather than treating them as identical.|Too much glow can destroy edge contrast and alpha quality.',
+'blur procedural depth-maps curl-noise','effects noise',diagram='effects')
 
 lesson('timefx','15 · Time remap, speed, loops and motion blur','INTERMEDIATE',
 'Temporal sampling affects motion even when no transform changes.', '''
@@ -273,7 +303,7 @@ Use Mask Tracking on an appropriately drawn mask for rigid, easy-to-follow objec
 Pre-render a clean RGBA intermediate when editing further becomes slow; verify that the output format actually retains an alpha channel.
 ''', 'I can roto a 2-second moving subject.|I understand propagation and Freeze.|I can choose mask tracking vs Roto Brush.',
 'Cut a person out of an indoor clip and place a moving procedural texture behind the subject.',
-'Object Matte was introduced in After Effects 26.2, so 25.6 uses Roto Brush/Refine Edge/Mask Tracking instead.|Freezing a roto span does not replace checking every frame.',
+'Object Matte is also available; compare subject selection with brush-guided roto and mask tracking.|Freezing a roto span does not replace checking every frame.',
 'roto alpha mask-tracking',diagram='alpha')
 
 lesson('paint','20 · Paint, clone and Content-Aware Fill','INTERMEDIATE',
@@ -295,9 +325,9 @@ Turn on 3D switches for several photos or shape layers and separate them in Z de
 Create a Camera orbit Null and parent the camera to it for controlled moves, or animate camera Position/Point Of Interest intentionally. Use multiple views to check that foreground and background have the desired depth separation.
 Add a Light (Ctrl+Alt+Shift+L) and test Material Options on 3D layers. Understand Accepts Lights/Shadows and limitations of the selected 3D renderer.
 Switch Project Settings/Composition Advanced 3D renderer only intentionally; Classic 3D, Cinema 4D and Advanced 3D do not have identical feature sets. Test native 3D models where supported.
-In After Effects 25.6, select multiple 3D layers to use the shared/single 3D transform gizmo; also inspect View → Default Camera Settings for the new default camera controls.
-For camera depth-of-field needs, verify the chosen renderer. 26.3 added in-engine Advanced 3D Depth of Field; do not confuse that newer feature with older camera DOF workflows in other renderers or 2D lens-blur simulations.
-''', 'I can make a 3-layer parallax scene.|I can distinguish renderers and camera types.|I can locate 25.6 shared gizmo controls.',
+In After Effects 26.5, select multiple 3D layers to use the shared/single 3D transform gizmo; also inspect View → Default Camera Settings for the new default camera controls.
+For camera depth of field, use Advanced 3D’s in-engine DOF (available since 26.3) and inspect Camera Options focus and aperture. A 2D Camera Lens Blur map is a different workflow.
+''', 'I can make a 3-layer parallax scene.|I can distinguish renderers and camera types.|I can locate shared gizmo controls.',
 'Create a 6-second dolly move through three cut-out images at different Z positions, avoiding obvious image edges.',
 '2D effects like CC Sphere or 3D Channel effects do not become scene geometry by naming alone.|Advanced 3D renderer feature support differs from Classic 3D.',
 '3d-intro cameras 3d-renderers 3d-models', 'release history help',diagram='coordinates')
@@ -321,11 +351,11 @@ In File → Project Settings → Color, compare color-managed versus unmanaged w
 Inspect an imported image’s Interpret Footage color settings. When necessary, assign the right input profile; assigning a profile changes interpretation and is not the same thing as changing RGB values with an effect.
 Use Lumetri Color, Curves and Levels on a test image. Correct exposure/contrast/white balance first, then make a look. View histograms or scopes where available and compare to a controlled reference.
 Understand straight vs premultiplied alpha and RGB in transparent pixels. Remove Color Matting when necessary; a matte halo is not always fixed by globally sharpening an image.
-For an OCIO/ACES workflow, select a known supported configuration, interpret input color spaces, preview through a chosen view transform, and set intended output transform. Do not claim native bundled ACES 2.0 configs in 25.6; those arrive in 26.5.
+For an OCIO/ACES workflow, open Project Settings → Color, select OCIO color managed, choose ACES 2.0 CG v4.0 or Studio v4.0, and explicitly set input, working, display and output spaces. Test a short render before changing an established project’s configuration.
 Export a tagged test image/video and compare the rendered file in a color-managed viewer. Different Windows video apps may apply different display transforms; check metadata, not just eye judgment.
 ''','I know input vs working vs display vs output space.|I can explain 8/16/32 bpc.|I can test alpha against light/dark backgrounds.',
 'Grade the same PNG to neutral in an 8-bpc unmanaged project and a 16-bpc color-managed project; document the differences.',
-'Increasing bpc does not restore clipped source data.|Do not use an ACES 2.0 feature added in 26.5 as a 25.6 instruction.',
+'Increasing bpc does not restore clipped source data.|Changing an existing project’s ACES configuration can change its appearance; preserve a known-good copy and compare renders.',
 'color color-depth ocio alpha', 'color ocio history',diagram='effects')
 
 lesson('expressions','24 · Expressions: build a repeatable controller','INTERMEDIATE',
@@ -339,20 +369,20 @@ Toggle an expression off without deleting it. Use Animation → Keyframe Assista
 ''', 'I can create a slider-controlled rotation.|I can return the correct value dimension.|I can disable vs delete an expression.',
 'Build one Null with Speed, Amount and Color Control driving a three-layer animated indicator.',
 'Expressions are not general browser JavaScript; DOM/HTML APIs are unavailable.|An expression controller can introduce a fragile dependency on its layer name.',
-'expressions expression-language expression-controls', 'expressions expressions-basics',diagram='layers')
+'expressions expression-language expression-controls expression-examples expression-lookup', 'expressions expressions-basics',diagram='layers')
 
 lesson('data','25 · Data-driven text and graphics','ADVANCED',
 'Separate content from animation so recurring work is faster to update.', '''
 Create a small UTF-8 CSV or TSV with name, score and color columns. Import it as data through File → Import and inspect its accessible data properties.
-Use expression pick whipping or the available footage data methods to read row values. Start with literal values before adding a drop-down selector or a row index slider.
+For JSON use footage('stats.json').sourceData.score. For CSV/TSV add the data item to a test comp, expand Data and pick-whip the intended cell; inspect its generated dataValue path and compare against the table before building row logic.
 Create a Score text layer and set Source Text from a suitable string expression. Format numbers deliberately with Math.round(), toFixed() or String() where appropriate.
 Build a background rectangle sized to text with sourceRectAtTime(); add horizontal and vertical padding, and inspect left/top offsets to avoid misalignment.
 Try importing a small JSON object as footage and reading a nested key by expression using footage('filename.json').sourceData. Keep field names stable and check for missing keys.
 Make a reusable template with editable content and named controls. Document what changes without touching timeline keys.
 ''','I can import one data file.|I can link text to a value.|I can keep animated layout working after the string changes.',
 'Make a three-slide statistics board generated from a CSV, each with an auto-sized number card.',
-'Imported data schema paths are easy to misaddress: inspect the data structure.|SourceText may contain formatted objects; test with the target 25.6 expression engine.',
-'data expressions auto-layout',diagram='layers')
+'Imported data schema paths are easy to misaddress: inspect the data structure.|SourceText may contain formatted objects; test with the target 26.5 JavaScript expression engine.',
+'data expressions auto-layout','data expressions',diagram='layers')
 
 lesson('templates','26 · Essential Properties and MOGRT delivery','ADVANCED',
 'Build assets that another editor can adjust without breaking a controlled design.', '''
@@ -368,17 +398,17 @@ Open or install the MOGRT in a compatible Adobe workflow where available; test e
 'essential-properties mogrt precomp', 'mogrt',diagram='layers')
 
 lesson('advanced3d','27 · Native 3D models, environments and renderers','ADVANCED',
-'Use only the mesh and model capabilities actually available in AE 25.6.', '''
-Import a supported 3D model format available to 25.6, including supported GLB/GLTF/OBJ or FBX as applicable to your project/build. Inspect scale, axes, texture material paths and animation playback.
+'Combine imported models with native meshes and supported materials in Advanced 3D.', '''
+Import a supported GLB/GLTF/OBJ or FBX model appropriate to your project. Inspect scale, axes, texture material paths and animation playback.
 Create a 3D composition using the Advanced 3D renderer. Add an environment light or HDRI for reflections and test an animated environment light (introduced in 25.2).
 Check each model’s Material Options, Accepts Lights, Shadows and shadow-catcher workflow. Compare quality/performance options and confirm the actual render, not only Fast Draft.
 Use the shared single 3D gizmo on multiple selected 3D layers (25.6 feature) to transform as a group visually. Learn that it changes individual layers; it is not necessarily a persistent parent rig.
 Change View → Default Camera Settings (25.6) to adjust the way default/custom views behave. Save a test and inspect composition views before and after.
-For geometric primitives, create shapes or use an imported mesh asset. Direct native parametric 3D mesh creation and Substance 3D material support belong to 26.0+, not this manual’s target.
-''','I can import one model and light it.|I can test an environment light.|I can identify two 3D features new in 25.6.',
+Create a native mesh with the Parametric Mesh tool or Layer → New. Adjust Mesh Options and material roughness/metallic controls; import an SBSAR material to compare. Keep this separate from Beta-only materials on 3D text/shapes.
+''','I can import one model and light it.|I can test an environment light.|I can compare imported models and native meshes.',
 'Build an 8-second product turntable using a supported 3D model and a controlled camera orbit.',
-'3D model and material import support varies by format/renderer.|Native parametric mesh creation is not a 25.6 feature.',
-'3d-models 3d-renderers cameras 25-6-features', 'release history',diagram='coordinates')
+'3D model and material import support varies by format/renderer.|An emissive-looking material does not illuminate nearby geometry; use an actual light for that.',
+'3d-models 3d-renderers cameras parametric-meshes substance-materials', 'release history meshes substance',diagram='coordinates')
 
 lesson('puppet','28 · Puppet rigging and deformation','ADVANCED',
 'Animate flexible artwork without cutting it into dozens of rigid pieces.', '''
@@ -409,7 +439,7 @@ Make a 5-second rain field that respects foreground occlusion via track matte an
 lesson('render','30 · Render Queue, codecs, alpha and audio','DELIVERY',
 'Choose the output to match its downstream use and verify what the render actually contains.', '''
 Save your project. Select the final composition and use Ctrl+Shift+/ to add it to Render Queue. Inspect Render Settings, Output Module, and Output To separately.
-Set a working review output, such as an H.264 MP4 where the installed 25.6 encoder and selected output route support it. Alternatively queue an Adobe Media Encoder output using Ctrl+Alt+M. Do not rely on one codec for every delivery.
+Set a working review output, such as an H.264 MP4 where the installed 26.5 encoder and selected output route support it. Alternatively queue an Adobe Media Encoder output using Ctrl+Alt+M. Do not rely on one codec for every delivery.
 For a master or intermediate, choose a high-quality suitable codec such as ProRes or DNxHR (where available), or an image sequence. Specify bit depth, frame rate, color tagging and audio as intended.
 For transparency, use a format/codecs that support alpha, select RGB+Alpha, and specify Straight or Premultiplied according to downstream requirements. Standard H.264 MP4 generally does not carry normal AE RGBA transparency.
 Render only intended work area or entire comp explicitly. Check that the final frame, 100% resolution, high-quality sampling and motion blur correspond to your delivery requirements.
@@ -424,7 +454,7 @@ lesson('collect','31 · Backups, Collect Files and team handoff','DELIVERY',
 Save the working .aep, then use File → Dependencies → Collect Files to gather used sources into a package. Read the available options and select a dedicated collection folder.
 Relocate/copy the collected folder to a different Windows path or drive letter, open the collected .aep and verify it uses collected assets rather than the old disk locations.
 Audit installed fonts, effects, scripts, external 3D textures, render destinations, proxies and dynamically linked dependencies. Collect Files is not a guarantee of third-party plugin portability.
-Generate an explicit README listing AE version 25.6, frame rates, render settings, color management, input dependencies, licensed assets and any known limitations.
+Generate an explicit README listing AE version 26.5, frame rates, render settings, color management, input dependencies, licensed assets and any known limitations.
 Use versioned project saves such as Project_v001.aep and Increment and Save; maintain automated backups where configured. Restore a backup before trusting the process.
 Consider making a high-quality pre-render or flattened proof video for reviewers who cannot open AE. Keep editable project and rendered approval media separate.
 ''','I can collect and reopen a project from a new path.|I have a dependency manifest.|I can restore a previous project version.',
@@ -450,7 +480,7 @@ lesson('debug','33 · Diagnose broken results systematically','DELIVERY',
 When the Comp viewer is black, check active comp, time, layer In/Out, eye, solo, opacity, mask, matte, blend mode and viewer channel before touching effects.
 If the result is different after precomposing, compare render order, collapse transformations, effect stacks, adjustment layer scope and color management.
 If preview is frozen, disable Caps Lock, inspect Preview settings and work area, then confirm a frame has been rendered. Restart only after a simple reproducible check.
-If an effect is missing, inspect Effect Manager, plugin installation, 8/16/32-bpc support and whether it was introduced after 25.6. Replace unsupported features rather than inventing a hidden menu.
+If an effect is missing, inspect Effect Manager, plugin installation, 8/16/32-bpc support and whether it is stable in 26.5 or Beta-only. Replace unsupported features rather than inventing a hidden menu.
 If output differs from Comp viewer, compare Render Settings, Output Module, output color space, channel selection, renderer and file playback transform.
 Create a reduced reproducible .aep by duplicating the comp and removing half of its layers/effects, repeatedly narrowing the issue. Save before deleting or purging.
 ''','I can isolate a black-frame cause.|I can compare viewer/render settings.|I can build a minimal reproduction.',
@@ -460,7 +490,7 @@ Create a reduced reproducible .aep by duplicating the comp and removing half of 
 
 lesson('automation','34 · ExtendScript, scripts and batch workflow','ADVANCED',
 'Understand which tasks need property expressions and which need application automation.', '''
-Distinguish expressions (a formula on a property, evaluated over time) from ExtendScript/JSX scripts (commands that build or edit project objects). A regular expression cannot import and rename 200 files or create arbitrary layers.
+Distinguish expressions (a formula on a property, evaluated over time) from ExtendScript/JSX scripts (commands that build or edit project objects). A property expression cannot import and rename 200 files or create arbitrary layers.
 Learn the project object model at a high level: app.project, items, compositions, layers, properties, keyframes, and render queue items. Keep automation scripts narrowly scoped.
 Create a reversible experiment: a simple JSX script run through File → Scripts → Run Script File that makes a named solid and saves no files automatically. Review permissions/prefs relevant to scripts before running.
 Use undo groups around edits and test on a copy. Always guard the selected item type and active composition before dereferencing it.
@@ -469,7 +499,7 @@ Try a batch task such as renaming layers with a prefix or setting comp frame rat
 ''','I can distinguish JSX scripts from expressions.|I can describe project item vs layer objects.|I can test scripts safely on a copy.',
 'Write a short JSX script that enumerates comp names and reports them, without changing the project.',
 'Scripts can alter a project or access files; only run code you understand and trust.|An expression’s JavaScript support is not the same as a script’s API.',
-'scripting expressions project-management',diagram='layers')
+'scripting expressions project-management expression-examples','help expressions',diagram='layers')
 
 lesson('capstone','35 · Complete project: 10-second motion graphics composite','CAPSTONE',
 'Combine foundations, animation, keying, data, effects, sound and export into a repeatable deliverable.', '''
@@ -481,9 +511,74 @@ At 6–9 seconds, finish a procedural transition using Fractal Noise, Displaceme
 Audit at Full resolution: typography, alpha edges, layer order, no one-frame flash, camera position, color and clipping. Render a review movie and an archival-quality master; collect project files and write a delivery note.
 ''','I can deliver a complete timeline.|My project reopens without missing assets.|I can explain every element and effect in the render.',
 'Grade yourself: can you rebuild 80% of the sequence from scratch with your own footage and no tutorial?',
-'Do not judge a project only by rendered appearance; reproducibility and clean dependencies matter.|Use the exact 25.6 feature set throughout.',
+'Do not judge a project only by rendered appearance; reproducibility and clean dependencies matter.|Use the stable 26.5 feature set throughout and document dependencies.',
 'workflow capstone export project-management',diagram='timeline')
 
+
+lesson('modern-operations','00 · Quick Apply, guides and effect organization','FOUNDATIONS',
+'Use the current interface to locate operations and build consistent layouts.', '''
+Create a duplicate of your title comp. Press Ctrl+Enter, type e:glow and apply the result to the intended layer with Enter; F3 opens its controls.
+Reopen Quick Apply and inspect p: and m: results. On a disposable comp try Ctrl+Alt+Enter inside the launcher to create an adjustment layer, then compare which pixels change.
+Rename effect instances by purpose and give them distinct color labels using the gray swatch beside each effect name. Bypass one fx switch and compare before deleting anything.
+Show rulers with Ctrl+R. Add a 50% vertical guide and a 100-pixel right-edge guide via Edit Guide; change a duplicate composition’s width and compare.
+Lock guides independently from pinning. Export a .guides file and import it into another view, checking units, colors and reference edges in the destination.
+Choose an effect you use often and save a deliberate Animation Preset. Apply it to a duplicate at a known playhead time and inspect the added properties and keys.
+''','I can use Quick Apply result modifiers.|I can explain fixed versus percentage margins.|I can distinguish effect labels from processing.',
+'Build landscape and portrait title variants with the same intended margins; explain which artwork still needs repositioning.',
+'Guides do not reposition layers automatically.|A preset can add keyframes at CTI and change an existing setup.',
+'quick-apply responsive-guides effect-labels clipboard-frame','quick-apply guides effect-controls',diagram='screen')
+
+lesson('object-selection','00 · Object Matte with frame-by-frame quality control','INTERMEDIATE',
+'Use the current selection workflow and verify its cached propagation.', '''
+Choose a two-second shot with a clear subject and preserve the original footage. Double-click the layer into Layer panel and choose the Object Matte toolbar tool.
+Hover the subject and click to select; correct the base frame using Quick Selection or Selection Brush. Use Refine Edge for appropriate hair detail.
+Propagate across the intended range; inspect occlusions, hands and fast turns. Correct failed frames instead of assuming a green cache bar proves accuracy.
+Freeze the reviewed result and return to Composition. Compare it over black, white and saturated backgrounds, inspecting alpha as well as RGB.
+Save and reopen a test project. Compare 26.5 disk-cached propagation, then render an alpha-capable short master; retain source media and the project separately.
+Use the isolated layer as an Alpha Matte for a separate animated texture. Verify it follows the silhouette without unnecessarily showing the matte as an independent layer.
+''','I can select and refine an object.|I can judge matte stability across frames.|I can distinguish disk-cached analysis from a final RGBA export.',
+'Compare Object Matte and brush-guided roto on the same difficult turn and keep the cleaner result.',
+'Ctrl+W is documented ambiguously; choose the toolbar or verify the installed editor.|A cache is not an asset backup.',
+'object-matte roto mattes','object-matte shortcuts',diagram='alpha')
+
+lesson('modern-type','00 · SVG and variable-font motion','INTERMEDIATE',
+'Bring editable vectors into a current typography workflow.', '''
+Import samples/badge.svg as footage and again as a composition. Compare source linkage, editable Contents and the rendered appearance.
+If Illustrator is available, enable Include SVG Code in its Clipboard Handling preferences, copy outlined vector art and paste into an active AE comp. Inspect fills and grouping.
+Create a text layer using an installed variable font. Expand Text → Animate → Variable Font Axes and choose an axis that the font actually supports.
+Create an initial axis keyframe at time zero, move 24 frames and change the value within its supported range. Add a Range Selector for character timing.
+Compare Variable Font Spacing modes and long/short text strings. Use native shapes or text layers deliberately; editable SVG geometry is not editable Illustrator text.
+Render a 48-frame sample and inspect sharpness, glyph spacing and line wrapping. Record the exact font family/file needed for handoff.
+''','I can choose editable SVG or linked footage.|I can animate an available variable-font axis.|I can verify typography dependencies.',
+'Make a two-second badge reveal with a weight change and a Trim Paths accent.',
+'Use a variable font, not merely a static family with several weights.|SVG text clipboard conversion is not supported by the stable shape route.',
+'svg-workflow variable-fonts text-animator','svg variable-fonts',diagram='layers')
+
+lesson('flow-alpha','00 · Curl Noise, Unmult and audio dynamics','INTERMEDIATE',
+'Use current native effects for texture, alpha and sound.', '''
+Create a comp-sized solid, open Quick Apply and apply e:curl noise. Start with Internal input and compare Scale and Swirl separately.
+Animate a short texture using the intended Evolution/motion controls. Colorize with Tint or Tritone and inspect aliasing at Full resolution.
+Precompose the texture and use it as a luma matte on another layer. Confirm whether the consuming effect/matte samples the stage you intended.
+On a suitable black-backed element apply Unmult, choose its background mode and inspect alpha. Tune level/softness and test over dark and bright backgrounds.
+On a duplicate audio layer try Compressor, Gate and Distortion one at a time. Compare bypass at similar loudness and preserve spoken word endings.
+Render a short review with audio and an alpha-capable element separately. Reimport to verify the channel behavior and listen to the processed sound.
+''','I can distinguish a procedural texture from a fluid simulation.|I can create real alpha from an appropriate backing.|I can compare processed audio without confusing loudness with quality.',
+'Build an abstract flowing title transition and document the purpose of each effect in its stack.',
+'Unmult may remove genuine foreground black/white without a protective matte.|Gate does not remove room noise underneath speech.',
+'curl-noise unmult audio-dynamics','noise keying-effects audio-effects',diagram='effects')
+
+lesson('mesh-focus','00 · Native mesh materials and an Advanced 3D rack focus','ADVANCED',
+'Combine stable geometry, material and camera tools in one controlled scene.', '''
+Create a new comp using Advanced 3D. Add a cube and sphere using the Parametric Mesh tool or Layer → New, placing them at different camera distances.
+Adjust Mesh Options and contrasting Roughness/Metallic material values. Use a real light/environment and compare highlights with camera movement.
+If an SBSAR is available, import and apply it to a supported mesh. Test modest material displacement on the mesh, checking silhouette and rendering cost.
+Create a camera, enable Depth of Field and focus the near object. Adjust Aperture and Blur Level, then keyframe Focus Distance toward the far object.
+Render a 48-frame test in Active Camera. Check focus at the first, middle and final frame and compare Full-quality output with the interactive preview.
+Collect the test project and dependencies. Keep materials on 3D text/shapes and animated layers as material inputs out of this stable-only exercise; those are separate Beta capabilities.
+''','I can create native geometry.|I can distinguish displacement from a 2D warp.|I can render-check a camera focus change.',
+'Create a product-style orbit with one controlled rack focus and a written material/dependency list.',
+'Emission appearance does not illuminate nearby geometry.|A flat CC Sphere effect is not the mesh created here.',
+'parametric-meshes substance-materials advanced-dof','meshes substance material-properties advanced-dof',diagram='coordinates')
 
 # Stable chapter IDs are also saved progress keys. Keep IDs while sorting the learning ladder.
 _PHASE_ORDER={'START':0,'FOUNDATIONS':1,'INTERMEDIATE':2,'ADVANCED':3,'DELIVERY':4,'CAPSTONE':5}
@@ -512,13 +607,14 @@ def topic(id,title,category,summary,section_text,exercise='',pitfall='',related=
         sections=sections,experiment=exercise,pitfalls=[v.strip() for v in pitfall.split('|') if v.strip()],
         related=related.split(),sources=sources.split()))
 
-topic('version-workflow','Version discipline: AE 25.6, not 26.x','Foundations','A reproducible workflow must target only controls available in the November 2025 release.', '''
-Verify the build::After Effects 25.6 shipped in November 2025. Use Help → About After Effects to inspect the installed version. A menu described in 2026 Adobe Help may not exist in 25.6, even if a modern user guide says it is standard.
-Available by 25.6::25.2 brought improved high-performance playback, HDR preview and FBX import; 25.3 smoother viewer zoom; 25.4 Quick Offset, text formatting copy/paste and CICP metadata; 25.5 mostly fixes; 25.6 the shared 3D gizmo, default camera settings, Tip of the Day and timeline housekeeping.
-Not available::26.0+ introduces native parametric meshes, new audio Compressor/Gate/Distortion, native SVG shapes, variable-font axes, and Unmult; 26.2 adds Object Matte, Quick Apply and proportional scrubbing; 26.3 adds Curl Noise, improved Mask Tracker, Advanced 3D engine DOF and clipboard-frame capture; 26.5 adds new guides, modern effect labels and ACES 2.0 bundling.
-''','Search Adobe feature history for a favorite feature and record the version where it first appeared.','An old After Effects 25.x project may still load in 26.x; that does not mean 26.x features back-port to 25.6.','interface 25-6-features','release history requirements')
+topic('version-workflow','Version discipline: 26.5 stable and a separate Beta','Foundations','Use the September 2026 stable release and recognize the boundary of its feature set.', '''
+Identify::Check Help → About After Effects for 26.5. This guide’s research date is 2026-10-28; it does not assume features from a rolling Beta page ship in stable.
+Modern tools::26.0–26.3 added native meshes/materials, variable-font axes, SVG workflows, Unmult/audio effects, Quick Apply, Object Matte, Proportional Scrubbing, Curl Noise, clipboard frame capture and Advanced 3D DOF. They are all within this edition’s target.
+26.5 improvements::Responsive guides, Object Matte disk caching, effect labels/modernized controls and ACES 2.0 configurations are included. Read the dedicated topics for the actual operations and limits.
+Beta boundary::Contour Paint, De-esser, AI Assistant, layers as 3D material inputs, materials on 3D text/shapes, editable Illustrator-text conversion, Quick Set Anchor and generalized Alt-drag duplication are listed on Adobe’s Beta page. Do not build a stable-only handoff around them.
+''','Find the installed version, open Quick Apply, then explain why a Beta tutorial may expose different controls.','Stable mesh-specific Alt-drag behavior does not establish general layer duplication support.','interface release-26-5 beta-watchlist','release whats-new beta')
 
-topic('25-6-features','What is distinctive about 25.6','Foundations','Four practical improvements and a major compatibility note.', '''
+topic('25-6-features','Earlier 25.6 features retained in 26.5','Foundations','Earlier improvements retained in 26.5; the durable topic ID also preserves existing links.', '''
 Shared 3D gizmo::Select multiple 3D layers and use a single viewport gizmo to position, rotate and scale multiple selected layers. It reduces visual clutter; it does not replace Parenting or create a persistent Group object.
 Default camera settings::View menu allows modifying default-camera behavior for appropriate views. Use this to control perspective when no explicit camera is used or when viewing a custom view, but record the change in a training project.
 Interface and fixes::Tip of the Day appears when an appropriate viewer is empty/reloaded. Timelines can be closed to the left or right, and 25.6 fixes a large group of project, export and stability defects.
@@ -560,7 +656,7 @@ topic('frames','FPS, timecode and frame alignment','Foundations','Work in frame 
 Timecode::In a 24-fps non-drop-frame composition, 00:00:01:12 means 1.5 seconds. Frames within a second run 00 through 23. The display mode can also show frames rather than timecode.
 Layer sampling::Source footage at 30 fps inside a 24-fps comp is sampled at the comp frame grid, potentially repeating/dropping frames or using blending. Audio is time-based and should be inspected independently of visual frame matching.
 Useful arithmetic::Duration seconds = frames / fps. 72 frames at 24 fps = 3 seconds; 100 frames at 25 fps = 4 seconds. Use the guide’s frame calculator to explore rates and offsets.
-''','Make a four-second comp at 25 fps and label frame numbers 0, 24, 25, 99, 100 with timeline markers.','Drop-frame timecode applies to appropriate broadcast rates; do not use its punctuation as a universal frame-count formula.','timeline source-time','help')
+''','Make a four-second comp at 25 fps and label frames 0, 24, 25 and 99. Frame 100 is the exclusive duration boundary, not a visible frame inside that comp.','Drop-frame timecode applies to appropriate broadcast rates; do not use its punctuation as a universal frame-count formula.','timeline source-time','help')
 
 topic('timeline','Layer bounds, work areas and markers','Foundations','A timeline is several overlapping time systems.', '''
 Three positions::The composition playhead indicates comp time; the layer’s bar shows In/Out times in that comp; footage source time indicates which source frame is used. A precomp also has its own inner timeline.
@@ -680,7 +776,7 @@ topic('procedural','Fractal/Turbulent Noise and displacement','Effects','Generat
 Noise generator::Fractal Noise exposes a procedural field. Contrast, Brightness, Scale, Complexity and Evolution/Offset Turbulence change pattern appearance and motion.
 Signal map::Convert noise to useful grayscale and plug into Displacement Map, Compound Blur or matte controls. The map does not need to look beautiful as a layer; its luminance/channel relationship is the important factor.
 Animation loops::Looping Evolution might not produce a seamless visual loop unless cycling and offset settings are chosen correctly. Check first and last frame against each other.
-''','Make 3 kinds of noise with identical Evolution speed but different Scale and use each as a Displacement Map.','Curl Noise first appears in 26.3; it is not a 25.6 effect.','depth-maps effects','history')
+''','Make 3 kinds of noise with identical Evolution speed but different Scale and use each as a Displacement Map.','Curl Noise, introduced in 26.3, is available in 26.5; its flow controls differ from Fractal Noise.','depth-maps effects','history')
 
 topic('depth-maps','Displacement, depth and faux 3D','Effects','Depth maps encode local differences but do not automatically turn an image into geometry.', '''
 Grayscale meaning::A depth map typically uses light/dark values to represent a chosen near/far ordering. It is only meaningful when an effect interprets those values with a known range and channel.
@@ -691,7 +787,7 @@ Map quality::Soft gradients can create smooth wipes or depth-based blur. Abrupt 
 topic('time-remap','Time remapping, reversal and loops','Animation','Resampling a source in time is different from moving keys along a comp timeline.', '''
 Source-clock changes::Time Remap keys map comp time to source time. A hold segment samples one source frame repeatedly; a descending segment can reverse the footage.
 Layer vs keyframe reversal::Time-Reverse Layer reverses the layer source playback; Time-Reverse Keyframes reverses timing of selected animation keys. Use deliberately named test duplicates.
-Loop frames::The source-duration end time can be one frame after the last visible frame. Fix end keys before applying loopOut('cycle') on a Time Remap property to avoid seam flashes.
+Loop frames::Keep the full N-frame source duration. Use an initial (0,0) remap key, a last-valid-frame key at ((N-1)*d,(N-1)*d) with outgoing Hold, and a cycle-boundary key at (N*d,0). loopOut('cycle') then repeats that full interval; simply deleting the duration endpoint can shorten the cycle. Check source/comp rates and trim offsets.
 ''','Render a 2-second clip as forward, reverse, freeze and looping examples.','Video source frames may be interpolated differently depending on frame blending settings.','frames motion-blur','shortcuts')
 
 topic('motion-blur','Native motion blur and shutter settings','Animation','Motion blur communicates movement between discrete frames.', '''
@@ -710,7 +806,7 @@ topic('text-animator','Text animators and selectors','Text & data','Text animati
 Animator vs source::Source Text defines content. Text → Animate adds a group of animated properties that apply to selected characters, words or lines. The layer Transform moves all characters together.
 Range selector::Start, End, Offset and Advanced selectors determine which text is affected. Shape, Smoothness and Based On modes can create scans, typewriter-like reveals or per-word emphasis.
 Expression selector::A custom selector can provide per-character weight values. Use it only when Range or Wiggly Selector cannot express the motion and maintain it carefully.
-''','Animate each word in a heading by changing only Based On and a range selector’s Offset.','Variable-font axis animation is a 26.0 addition, not a 25.6 skill.','text expression-controls','history')
+''','Animate each word in a heading by changing only Based On and a range selector’s Offset.','Variable Font Axes are available in 26.5; use a genuinely variable font and check its supported axes.','text expression-controls','history')
 
 topic('type-design','Kinetic typography and text clarity','Text & data','Text animation is meaningful only when it stays legible.', '''
 Sequence hierarchy::Decide which line is primary and which is secondary. Do not animate every word with equal force; use emphasis selectively.
@@ -736,11 +832,11 @@ Alpha stage::Keylight Screen Matte lets you inspect and refine the core silhouet
 Edge stage::Key Cleaner, Advanced Spill Suppressor, subtle edge color correction and selective blur improve integration. Test against multiple backgrounds and moving frames.
 ''','Key a person over a dark and a light background, then adjust edges until both look acceptable.','Green spill suppression is a color correction problem, not only alpha thresholding.','alpha masks','help')
 
-topic('roto','Roto Brush and Refine Edge in 25.6','Compositing','Use the available AI-assisted roto workflow without 26.2 Object Matte.', '''
+topic('roto','Roto Brush and Refine Edge alongside Object Matte','Compositing','Choose brush-guided propagation when it gives better control than object selection.', '''
 Layer viewer::Roto Brush strokes are made on a layer in the Layer panel, not drawn as a Composition viewer shape. The initial base frame guides propagation across nearby frames.
 Propagation and correction::Inspect forward/backward spans, repair slips and use Refine Edge for wispy hair. Freeze after corrections and render check the entire selection range.
 Tool choice::For a rigid object, a tracked mask or Mocha planar mask may be more efficient than broad Roto Brush propagation. Choose based on edge topology and motion.
-''','Roto a walking person for two seconds without any abrupt matte popping.','Object Matte AI selection did not ship until 26.2.','mask-tracking paint','history')
+''','Roto a walking person for two seconds without any abrupt matte popping.','Object Matte is available; choose its toolbar tool for object selection, and use brush/refine tools for corrections.','mask-tracking paint','history')
 
 topic('point-tracking','Point tracking, attach points and drift','Tracking & 3D','Understand what one or two tracked features can and cannot tell you.', '''
 Feature region::Contains visual detail the tracker matches across frames. Search region defines where it is allowed to search. Attach Point is the actual point used to transfer the solved motion.
@@ -761,10 +857,10 @@ Competing tasks::A shot may first need a camera/point track before stabilization
 ''','Stabilize a ten-second handheld pan and check vertical edges for rubbery warping.','Do not assume every pan is unwanted motion.','point-tracking 3d-intro','help')
 
 topic('mask-tracking','Tracked masks vs hand-roto','Tracking & 3D','Automating vertices is useful only with deliberate quality review.', '''
-Best candidates::Fairly rigid textured shapes with predictable motion can be good mask-tracking targets. Large deforming hair edges generally need assisted or manual roto.
+Best candidates::Select a mask on trackable footage/precomp, then use Animation → Track Mask or Mask Path analyze buttons directly in Timeline. Choose the motion method and analyze forward/backward. Solids, shapes, text and adjustment layers do not supply trackable footage; use roto for deforming hair.
 Key cleanup::Adjust path vertices only where visibly necessary, avoid unnecessary topology changes, and feather in a stable way over time.
 Fallback::Point/planar trackers can drive a mask transform while a few manual keys adjust localized shape changes.
-''','Track a moving oval badge for three seconds and correct at least one deliberately induced drift.','Mask tracking does not infer hidden objects behind an occlusion perfectly.','masks roto','help')
+''','Track a moving oval badge for three seconds and correct at least one deliberately induced drift.','Mask tracking does not infer hidden objects behind an occlusion perfectly.','masks roto','mask-tracking')
 
 topic('paint','Brush and Clone Stamp in Layer panel','Compositing','Painting has source-time and stroke-duration behavior.', '''
 Context::Select a suitable painting tool and work in Layer viewer. Source paint layers and Brush/Clone behavior depend on the Layer panel, Paint and Brushes controls.
@@ -793,14 +889,14 @@ Orbit rig::Parent a camera to a Null positioned near the desired pivot for repea
 topic('3d-renderers','Classic 3D, Advanced 3D and Cinema 4D','Tracking & 3D','Renderer choice defines the 3D features that actually calculate.', '''
 Capabilities differ::Advanced 3D supports imported models and advanced shading/material interactions, whereas Classic 3D and Cinema 4D renderer contexts serve different layer/geometry feature combinations.
 Performance modes::Draft 3D and viewer preview modes trade interactivity for fidelity. Final frames need a deliberate check under the intended renderer and quality settings.
-Version gate::After Effects 26.3 adds Advanced 3D in-engine depth of field, and 26.0 adds native parametric meshes; keep those out of a 25.6 test even if current Adobe Help screenshots display them.
+Current capabilities::26.5 includes native parametric meshes, Substance materials and in-engine depth of field. Test effect, shadow and transparency behavior in the chosen renderer before committing a project.
 ''','Put a native 3D layer in a simple comp and compare which renderer controls are enabled in each mode.','Render-time behavior can differ significantly from the viewport fast-preview display.','3d-models cameras','history')
 
 topic('3d-models','GLTF/GLB/OBJ/FBX and environment lights','Tracking & 3D','Use imported assets with predictable materials and scale.', '''
 Model import::24.x introduced model import and Advanced 3D. 25.2 expanded FBX support and animated environment lights. Check exact supported features and texture naming on the files you actually import.
 Geometry vs layer::A 3D model layer is a scene object; ordinary 2D effects are not equivalent to editing its mesh/material internals. Use 3D-specific controls and renderer options.
 Materials and lighting::Use an HDR environment where appropriate, control exposure and orientation, and test shadow reception/casting. A model with missing UV textures may appear uniformly shaded or magenta/default.
-''','Import a simple neutral cube/GLB, light it, and record size, rotation and texture dependencies.','Substance SBSAR material workflows arrive with 26.x, not 25.6.','3d-renderers color','history')
+''','Import a simple neutral cube/GLB, light it, and record size, rotation and texture dependencies.','Substance SBSAR materials work with models and parametric meshes; layers as material sources and materials on text/shapes remain on the Beta watchlist.','3d-renderers color','history')
 
 topic('camera-tracker','3D Camera Tracker and solved scenes','Tracking & 3D','Recover a camera path only when footage contains enough useful 3D information.', '''
 Analysis quality::Good parallax and stable texture help the solve. Rotational-only motion, zoom, rolling shutter and motion blur may weaken results.
@@ -826,10 +922,10 @@ No recovered highlights::Changing a clipped 8-bit source to 32 bpc preserves fur
 Effect support::Individual effects may have different 8/16/32 support. Verify through installed effect behavior and Adobe effect documentation before claiming that one effect is universal.
 ''','Apply several Curves operations to a gradient in 8 bpc and 16 bpc and compare visible banding.','32-bpc floating point project settings alone do not mean the H.264 output becomes 32-bit floating point.','color effects','effects')
 
-topic('ocio','OCIO/ACES in a 25.6 project','Color & delivery','Use the older available ACES configurations without importing 26.5-specific documentation.', '''
+topic('ocio','OCIO/ACES 2.0 in a 26.5 project','Color & delivery','Configure input, scene-linear working space, display and render output deliberately.', '''
 Color engine::Project Settings → Color includes Adobe color managed and OpenColorIO-managed options in supported builds; choose the appropriate engine for the production pipeline.
 Config and transforms::ACEScg is a working-space concept, not an output display transform. In OCIO choose configuration, source interpretation, working color space, viewing and output correctly.
-Version boundary::25.6 predates Adobe’s bundled ACES 2.0/OCIO 2.5.1 update in 26.5. A custom externally supplied config needs careful validation and does not justify claiming AE 25.6 has the newer built-in configs.
+26.5 configuration::OCIO 2.5.1 includes ACES 2.0 CG v4.0 and Studio v4.0. Choose a pipeline-approved configuration, set a suitable scene-linear working space, and set the Output Module color space independently from the viewer.
 ''','Take one sRGB PNG, interpret it correctly in OCIO and export a Rec.709 display-targeted sample.','Do not accidentally apply a display transform twice, once in an effect and again at output.','color export','ocio history')
 
 topic('expressions','Expression evaluation and safe syntax','Expressions & data','A property expression returns one calculated value at each time.', '''
@@ -889,7 +985,7 @@ Integration::A particle effect usually renders into the source layer’s context
 topic('simulations','Other simulation and stylize effects','Effects','Effects may generate pixels, distort existing pixels or simulate pseudo-physics.', '''
 Families::Shatter and CC Pixel Polly break pixels into chunks; CC Ball Action makes a point/ball grid; Foam/CC Bubbles generate liquid/bubble impressions; Turbulent Displace warps the existing source.
 Use by goal::Choose a particle emitter for autonomous moving pieces, Displacement Map for controlled deformation, and a texture/pixelation effect for stylized source conversion.
-Parameter discovery::Find each effect’s exact 25.6 parameter list in installed Effect Controls and Adobe effect-specific documentation. The guide cannot truthfully specify parameters for every bundled/third-party revision.
+Parameter discovery::Find each effect’s exact 26.5 parameter list in installed Effect Controls and Adobe effect-specific documentation. The guide cannot truthfully specify parameters for every bundled/third-party revision.
 ''','Recreate the same stylized logo breakdown using Shatter and CC Pixel Polly; compare limitations.','Effects can be visually similar but have different layer size, sampling or cache behaviors.','particles procedural','effects')
 
 topic('export','Render Queue decisions and preflight','Color & delivery','Choose deliverable-first settings and verify the resulting asset.', '''
@@ -938,7 +1034,7 @@ topic('missing-effects','Missing plugins, effects and unsupported version','Trou
 Diagnose source::Check built-in Effects & Presets, Effect Manager, installed add-on version, licensing, Windows-only plugin paths and whether the effect debuted in 26.x.
 Avoid false fixes::A missing plugin is not repaired by renaming an arbitrary different effect. Preserve the original project, replace intentionally, and compare the new render against a reference.
 Compatibility::32-bpc, GPU acceleration, renderers and external plugin versions vary. Some old effects are marked Obsolete but may load older compositions for compatibility.
-''','Simulate missing effect by disabling one installed effect instance, save a test and document the visual fallback.','Do not attempt to run a 26.x-native project element inside 25.6 and assume it will downgrade.','diagnostics version-workflow','effects history')
+''','Simulate missing effect by disabling one installed effect instance, save a test and document the visual fallback.','Saving for an earlier release does not back-port unsupported native effects or mesh/material features.','diagnostics version-workflow','effects history')
 
 topic('scripting','ExtendScript and project automation','Advanced','Build deterministic and reversible changes from scripts.', '''
 Object hierarchy::JSX/ExtendScript scripts use the AE scripting API: application, project, items, compositions, layers, properties and render queue. This differs from time-evaluated expressions.
@@ -962,16 +1058,151 @@ topic('capstone','Final self-assessment and future practice','Capstone','Demonst
 Foundations::Build and animate a three-layer shape composition without referring to menus. If you need the guide, identify the exact missing concept rather than rewatching unrelated tutorials.
 Compositing and effects::Make one alpha matte, one chroma key/rotoscope, one procedural transition, a controller-based rig and a correctly managed render.
 Maintenance::Reopen a collected project on a different path, diagnose one deliberately missing source, and explain why later-version shortcuts do not apply in your installed build.
-''','Complete the 35th lesson, then modify three visual decisions without following the original exact steps.','A certificate is not meaningful without repeatable hands-on work.','workflow diagnostics','help')
+''','Complete the final lesson, then modify three visual decisions without following the original exact steps.','A certificate is not meaningful without repeatable hands-on work.','workflow diagnostics','help')
+
+# Modern stable workflows, grouped by task rather than release-note order.
+topic('release-26-5','What changed through 26.5','Foundations','Locate modern tools without relearning the foundations.', '''
+2026 foundation::26.0 introduced native parametric meshes, Substance materials, variable-font axis animation, Unmult and Compressor/Gate/Distortion. SVG import was subsequently expanded; use current 26.5 import controls instead of an older workaround.
+Faster operations::26.2 added Quick Apply, Object Matte, material displacement and Proportional Scrubbing. 26.3 added Curl Noise, Advanced 3D depth of field, improved Mask Tracker, vector clipboard transfer and Copy Frame to Clipboard.
+Current release::26.5 improves guide placement, effect-instance labels, Effect Controls and Object Matte caching, and bundles ACES 2.0 via OCIO 2.5.1. These changes affect organization, reuse and color as well as visible imagery.
+''','Open one tool from each release family, then choose one that improves your own project.','A feature-history date and a later expanded workflow are different facts.','quick-apply object-matte responsive-guides ocio beta-watchlist','release whats-new history')
+
+topic('quick-apply','Quick Apply: effects, presets and commands','Effects','Find the operation by name, with a deliberate target.', '''
+Open and filter::Select the intended layer(s), press Ctrl+Enter or use Edit → Quick Apply. Prefix e: for effects, p: for presets or m: for menu commands. Choose the matching result and press Enter.
+New layers::Inside the dialog, Ctrl+Enter applies the selected effect/preset to a new solid or layer; Ctrl+Alt+Enter creates an adjustment layer. Read the modifier hints for that result. Creating an adjustment changes which underlying pixels are processed.
+Inspect::F3 opens Effect Controls. Check preset-added keys at the playhead, remove only unwanted properties and undo if it affected the wrong selection. A command result can act on the project rather than the selected layer.
+''','Apply Glow to a selected shape, then apply it to a new adjustment layer and explain the changed scope.','Ctrl+Enter opens the dialog outside it, but applies to a new layer while inside it.','effect-order adjustment-effects','quick-apply')
+
+topic('object-matte','Object Matte: select, propagate, refine and cache','Compositing','Extract an object, then judge the matte across time.', '''
+Base selection::Double-click the footage layer to open Layer panel. Choose Object Matte from the toolbar, hover a clear subject and click. Use rectangle/lasso or Quick Selection and Selection Brush to correct included/excluded areas; Refine Edge helps hair.
+Propagation::Advance through the required span, inspecting occlusions and pose changes. Correct errors, then Freeze from the Layer panel once the span is ready. Check the result over contrasting backgrounds before using it as a track matte.
+Persistence::26.5 stores propagation on disk for reuse after reopening. Keep disk space available. Cached analysis and a saved project are different from an exported alpha master; changing the selection can require more propagation.
+Shortcut conflict::Adobe’s Object Matte page lists Ctrl+W, while the general shortcut reference assigns Ctrl+W to Close. Use the toolbar or verify/remap the command in the installed editor; the documents do not establish a reliable focus rule.
+''','Isolate two seconds of a moving subject, inspect every frame, save/reopen and compare the matte before export.','Disk caching does not certify an edge or replace footage/project backups.','roto mask-tracking mattes','object-matte shortcuts')
+
+topic('responsive-guides','26.5 guides: pixels, percent, edge pinning and color','Animation','Design margins that remain meaningful as the canvas changes.', '''
+Placement::In the intended viewer show rulers (Ctrl+R), drag out a guide, then right-click → Edit Guide. Set orientation, pixel/percent units, reference edge and color. View → Add Guide provides numeric placement directly.
+Responsive reference::Use a percentage for proportional position, or a pixel offset from right/bottom for a fixed opposite-edge margin. During dragging, Alt changes units and Ctrl toggles pinning. Pinning changes the reference; locking (Ctrl+Alt+Shift+;) prevents movement.
+Reuse and scope::Guides belong to the active view; they do not automatically reposition artwork or render into a movie. Export/import with View → Export Guides / Import Guides. Adobe’s page retains contradictory old import notes after its explicit 26.5 preservation statement: verify a round trip in the actual destination build.
+''','Set a 50% vertical guide and a 100-pixel right margin; change a duplicate comp’s width and compare their positions.','Guides, guide layers and grid overlays are different; none is an automatic layout rig.','coordinates auto-layout','guides')
+
+topic('effect-labels','Effect labels, masks and reusable presets','Effects','Keep long stacks readable while controlling each effect’s scope.', '''
+Organization::26.5 modernizes Effect Controls and allows a color label on an individual effect instance. Select the gray label swatch beside the effect name and choose a color; use a purpose-based name. Colors organize controls; they do not change pixels or combine effects into one calculation.
+Local contribution::Draw a mask, set Mode=None when it should not cut layer alpha, then expand the effect in Timeline → Compositing Options and add a Mask Reference. Tune mask feather and Effect Opacity, watching effect support and render order.
+Reuse::Select the intended effects/properties and use Animation → Save Animation Preset for an .ffx. A preset stores selected settings/keys, not fonts, footage or plug-in installers. Apply on a duplicate at a known CTI and inspect changes.
+''','Make a masked Curves correction, name/color its effect, save the preset and test it on a duplicate layer.','A Timeline layer label and an Effect Controls instance label are independent.','effect-order masks effects','effect-controls effects-overview')
+
+topic('proportional-scrubbing','Quick Offset versus Proportional Scrubbing','Animation','Distribute either time or numeric changes without confusing the gestures.', '''
+Time::Select layer bars or keys in the intended order. Ctrl+Alt-drag in Timeline uses Quick Offset to spread timing. The first selection anchors the distribution; a layer offset carries its internal animation with it.
+Values::For Proportional Scrubbing, select layers/properties in order, then Ctrl+Alt-drag the property hot text. The first gets zero added change, the last the full change and intermediate selections fractions. Three layers and a 120-pixel change receive offsets 0, 60, 120; unequal initial positions need not become equal final spacing.
+Group boundaries::Shift+[ aligns the earliest In of the selection to CTI, Shift+] the latest Out, preserving relative timing. Alt+Shift brackets adjust the corresponding boundary group. Ordinary brackets instead use each layer’s own boundary. Check source handles when extending footage.
+''','With three initially aligned cards compare a 120-pixel proportional change with a timing offset; undo between trials.','Ctrl+Alt is the same modifier family, but dragging bars and dragging hot text perform different operations.','timeline keyframes motion-design','proportional layers')
+
+topic('svg-workflow','SVG file import and vector clipboard transfer','Animation','Choose source linkage or editable geometry intentionally.', '''
+File route::Use File → Import → File and choose SVG footage or composition as appropriate. A composition provides editable vector layers; footage behaves as a source item. Compare imported fills, gradients, strokes, grouping and bounds before animation.
+Clipboard route::In Illustrator enable Edit → Preferences → Clipboard Handling → Include SVG Code. Copy artwork, then Ctrl+V in AE to add editable shapes. With no selected comp, a composition can be created. Other apps must actually put SVG data on the clipboard; copying XML as plain text is different.
+Text and fidelity::Outline SVG text before this paste route, retaining the editable original elsewhere. Stable editable shape import does not establish editable Illustrator-text conversion, which remains Beta. Compare appearance at enlarged scale and inspect individual groups.
+''','Import samples/badge.svg as footage and as a composition; recolor one shape and explain which source stays linked.','SVG text and every browser SVG filter are not guaranteed to transfer as editable AE objects.','shapes import-media beta-watchlist','svg')
+
+topic('variable-fonts','Animate variable-font axes and spacing','Text & data','Animate genuine font variation while keeping the text editable.', '''
+Prerequisite::Use a variable font whose installed file exposes axes such as Weight, Width or Slant. Multiple static font weights alone are not a variable font. The font filter can help locate variable families.
+Animate::Expand the text layer, choose Animate → Variable Font Axes → the supported axis. Enable its stopwatch, move CTI and set another value within that font’s range. Use the Range Selector for character/word subsets.
+Layout::Text → More Options → Variable Font Spacing controls compensation during axis changes. Compare spacing modes, multiline wrapping and the same font on the rendering machine. Width animation and layer Scale produce different letter shapes and spacing behavior.
+''','Animate one word’s Weight over 24 frames and use a selector to send the change across characters.','A missing axis is usually a font capability issue; do not invent unsupported axis limits.','text text-animator auto-layout','variable-fonts')
+
+topic('parametric-meshes','Native parametric meshes and material appearance','Tracking & 3D','Build simple real geometry instead of using a sphere image effect.', '''
+Create::Use Advanced 3D and the Parametric Mesh toolbar tool or Layer → New to create a primitive. Inspect Mesh Options, supported Bevel Options and material assignment. Ctrl draws from center, Shift constrains proportions while drawing.
+Appearance::Change Base Color, Roughness and Metallic, then compare lighting at the same camera pose. Material Emission changes appearance but does not illuminate neighboring objects; use a light for illumination.
+Geometry::Mesh controls change scene geometry. CC Sphere instead renders a sphere-like image from layer pixels. Choose a native mesh for perspective/lighting interactions and keep geometry detail appropriate to the visible result.
+''','Create a cube and sphere with contrasting roughness, orbit a camera and identify which highlights follow the environment.','A native mesh and an extruded text/shape layer are different object types.','3d-renderers substance-materials advanced-dof','meshes')
+
+topic('substance-materials','Substance SBSAR and real mesh displacement','Tracking & 3D','Separate surface shading from geometric displacement.', '''
+Assign::Import an .sbsar material, apply it to a supported model or parametric mesh and inspect its exposed controls. Keep the SBSAR file and texture dependencies with the project. A material preset can expose different controls from another material.
+Height::Use the supported displacement controls on a parametric mesh with a suitable height input. Increase displacement modestly and inspect silhouette, surface detail and rendering cost. A bump/normal appearance does not necessarily change the silhouette; displacement can.
+Stable boundary::26.5 supports this mesh/model workflow. Animated layers as material inputs and Substance assignment to 3D text/shapes are separately listed Beta features. A missing material after reopening may require Reload Footage; compare Adobe known issues before rebuilding the scene.
+''','Compare a textured primitive with displacement off/on under identical camera/light settings and document dependencies.','A 2D Displacement Map effect remaps pixels; it does not create this geometry.','parametric-meshes 3d-models','substance material-properties known-issues')
+
+topic('advanced-dof','Advanced 3D in-engine depth of field','Tracking & 3D','Focus an actual 3D scene using camera distance.', '''
+Scene setup::Choose Advanced 3D in Composition Settings and create a camera with objects at visibly different distances. Enable Camera Options → Depth of Field. Inspect the scene in Active Camera, not only a custom view.
+Focus::Set Focus Distance to the intended object depth; adjust Aperture and Blur Level for the desired amount. Animate focus between objects and inspect edge quality at Full resolution. Render a short sample because interactive quality can differ.
+Distinctions::This in-engine capability arrived in 26.3. Camera Lens Blur uses a 2D grayscale blur map; the older Depth of Field effect needs suitable depth data. Neither is automatically a scene-camera DOF switch. More blur cannot reveal an occluded object.
+''','Rack focus between a near cube and far sphere over 48 frames, then compare the first/middle/last rendered frames.','An f-stop/aperture change in a simulated scene does not guarantee photographic exposure changes.','cameras parametric-meshes depth-maps','advanced-dof')
+
+topic('curl-noise','Curl Noise: a flowing texture experiment','Effects','Control structure separately from motion and color.', '''
+Start::Create a comp-sized solid and Quick Apply e:curl noise. Begin with Internal input. Compare spatial Scale and Swirl before adding color; a large preview area makes pattern changes easier to judge.
+Motion::Speed/Direction drift the input; Evolution changes its state; Turbulence Speed changes temporal activity. Inspect Input Noise, Curl Generation and Final Render to isolate the stage creating a result. Flow sampling controls affect continuity and cost.
+Use::Tint or Tritone can colorize the rendered field. Precompose when using it as a Displacement Map source or luma matte, and choose the appropriate sampled layer stage. For a loop, stop unrelated drift, cycle the intended controls and test the join; Evolution alone does not guarantee a seamless loop.
+''','Make two four-second textures with identical color but different scale/flow, then use one as a matte.','This is procedural texture rather than a fluid solver with collision-aware smoke.','procedural effect-order depth-maps','noise')
+
+topic('unmult','Unmult: convert a black or white backing into alpha','Compositing','Build transparency that can travel to another application.', '''
+Input::Use a suitable black- or white-backed element. Apply Unmult through Quick Apply or Keying. Choose the Background Color mode; inspect alpha separately using Alt+4.
+Edges::Tune the corresponding level, Softness and Remove Color Matting. Judge semitransparent edges over dark and light backgrounds. Protect genuine black/white foreground regions with another matte if they must survive.
+Output::A Screen blend can visually hide black over one background while leaving different alpha semantics. For reusable assets, render to an alpha-capable format with RGB+Alpha, then reimport and inspect both color and transparency.
+''','Unmult a black-backed light element and recompose its RGBA export over gray and magenta.','Removing a background cannot reconstruct foreground color information destroyed in the source.','alpha keying export','keying-effects')
+
+topic('audio-dynamics','Compressor, Gate and Distortion in 26.5','Audio','Treat loudness, pauses and saturation as separate tasks.', '''
+Dynamics::Compressor reduces louder passages above a threshold; adjust Ratio, Attack and Release, then match bypass loudness before judging. A louder result is not automatically cleaner.
+Pauses::Gate attenuates below threshold. Set it relative to the actual noise floor and tune Hold/Release to preserve word endings. It does not remove noise mixed under active speech.
+Sound design::Distortion changes timbre. Start with low Drive and modest Mix, compensate output Volume and check peaks in the rendered audio. Resolution/downsampling make intentional digital degradation. De-esser remains Beta at this cutoff; do not expect it in stable.
+''','Process samples/pulse.wav and a recorded phrase on duplicates, level-match bypass and compare a rendered WAV.','An audio effect does not generate a visual waveform or automatically detect musical beats.','audio audio-reactive beta-watchlist','audio-effects')
+
+topic('clipboard-frame','Snapshots, clipboard frames and rendered stills','Foundations','Choose an inspection image or a controlled production still.', '''
+Internal comparison::Viewer snapshots use Shift+F5 through Shift+F8 to store, F5 through F8 to compare. These are temporary comparison aids, not asset exports.
+Clipboard::Activate Composition, Layer or Footage and use Ctrl+Alt+Shift+F5 after the frame renders. Transparency Grid affects whether alpha is preserved for a supporting destination. The copy reflects viewing/color-management transforms; receiving apps choose a supported clipboard format.
+Production::Ctrl+Alt+S queues a still through Render Queue. Choose channels, precision and output color deliberately for production; do not treat a clipboard screenshot as an unmanaged scene-linear EXR.
+''','Copy a translucent shape with the transparency grid on/off and compare with an RGB+Alpha still render.','Destination clipboard support can differ even when AE supplies transparency.','color alpha export','copy-frame')
+
+topic('native-null-controllers','Native null controllers for points and paths','Expressions & data','Use maintained menu commands when a path needs reusable controls.', '''
+Point properties::Select a positional property or effect point and use Layer → Create → Null Controllers for Positional Points. Selecting a layer alone targets Position. Animate the generated null and inspect expression/Layer Control links.
+Path direction::For a selected Path, Null Controllers for Path Points lets nulls drive vertices; Nulls Following Path Points does the reverse; Null Tracing Along Path creates a traveling control. These commands are also available through Animation → Keyframe Assistant.
+Rigs::Use the JavaScript expression engine and distinct names. Shape-group skew/nonuniform scale or separating Position dimensions after linking can need repair. The older Create Nulls From Paths script panel has related operations under different labels.
+''','Create an arrow following a curved path with Null Tracing Along Path and change the path afterward.','Select the actual property, not only the layer, for path-specific commands.','paths parenting expressions','null-controllers')
+
+topic('profiler','Composition Profiler, ROI and compressed cache','Troubleshooting','Measure the operation you intend to accelerate.', '''
+Timings::Enable the Timeline Render Time column using its snail icon or column menu. Expand a layer to compare effects/masks. Cached readings can include retrieval and carry an asterisk; compare the same frame, resolution and cache state.
+Area::ROI restricts preview work. Crop Comp to Region of Interest changes the canvas; Output Module cropping changes the delivered area. These operations have different consequences. Turn ROI off for final whole-frame review.
+Storage::Lossless compressed disk frames trade cache storage and processing without lossy export changes. Preferences → Disk → Disk Cache → Enable Compressed Frames (Lossless) controls it. Diagnose specific failures before disabling it; the known crash notice names 26.0/26.2, not a blanket 26.5 defect.
+''','Measure cold/warm timings for a short Glow stack and compare an ROI preview without changing delivery settings.','Do not report cache replay timing as uncached final-render throughput.','performance cache proxies','profiler compressed-cache known-issues preview')
+
+topic('beta-watchlist','Stable versus Beta: read newer tutorials critically','Foundations','Keep the 26.5 offline guide usable without Beta-only commands.', '''
+Cutoff::Adobe’s Beta page checked 2026-10-28 was updated October 7. It separately lists Contour Paint, De-esser, AI Assistant, animated layers as material inputs and Substance materials on 3D text/shapes.
+More experimental tools::Editable Illustrator-text conversion, Quick Set Anchor, broader viewer Alt-drag duplication, PNG compression selection, Account/Stock panels and enhanced Auto-Save are on that list. Their appearance in the shared documentation sidebar is not release evidence.
+Project decision::Use stable alternatives for a 26.5 handoff: shape outlines, ordinary anchor controls, Ctrl+D, supported mesh materials and standard save/backup workflows. If you deliberately use Beta elsewhere, document that separate dependency and provide a compatible render.
+''','Identify one tutorial using a Beta feature and explain a stable 26.5 way to achieve a comparable result.','Mesh-specific Alt-drag in stable documentation does not prove generalized viewer duplication is stable.','version-workflow release-26-5','beta')
+
+topic('expression-examples','Copyable expression building blocks','Expressions & data','Use complete references, correct dimensions and an inspectable coordinate system.', '''
+Scalar and vector::On Rotation, `time*90;` produces 90 degrees per second. On 2D Scale use `s=100+Math.sin(time*2)*10; [s,s];`. Put expressions on the intended property; an array and a scalar are not interchangeable.
+Measured text card::For a simple background shape in the same untransformed context as a text layer named CAPTION, use `r=thisComp.layer("CAPTION").sourceRectAtTime(time,false); [r.width+40,r.height+24];` on Rectangle Path Size. Its group Position also needs `[r.left+r.width/2,r.top+r.height/2]` relative to the text origin; parent/align origins deliberately before linking. Size alone does not center the card.
+Coordinate conversion::For a 2D follower’s Position, use `src=thisComp.layer("LEADER"); p=src.toComp(src.anchorPoint); hasParent ? parent.fromComp(p) : p;`. Inspect parent spaces and the returned dimensions; a 3D rig may require world-space methods instead.
+Controller::On Rotation use `time*thisComp.layer("CTRL").effect("Speed")("Slider");` after creating and naming the null/slider. Use the expression pick whip for exact references and expose controls rather than duplicating constants.
+''','Build a labeled rotating badge with auto-sized text backing, then parent the rig and test the coordinate links.','The displayed expression is evaluated per property; it cannot create layers as a JSX script would.','expressions auto-layout expression-controls','expressions')
+
+topic('expression-lookup','Modern dropdown labels, key lookup and range mapping','Expressions & data','Read a configured control without maintaining duplicate label lists.', '''
+Dropdown::An eligible dropdown property exposes .text for its current label, .items for its label array and .textAtTime(t) for a sampled label. On Source Text, `thisComp.layer("CTRL").effect("Choice")("Menu").text;` needs an actual renamed dropdown control. Menu values are one-based; .items arrays are zero-based. Use numeric indices for portable logic because labels can be localized.
+Key lookup::nextKey(t) returns the later key or the last at the end. previousKey(t) returns a key at/before time or the first before the start. Check numKeys before querying an empty property or marker stream; J/K are unrelated UI navigation.
+Range behavior::linear(x,a,b,c,d) holds endpoint output values outside the input range; ease also holds its endpoints. For deliberate scalar extrapolation write the arithmetic explicitly, for example `20+(value/100)*180;`. Validate zero input spans in reusable rigs.
+''','Drive a text label from a named Dropdown Menu Control and compare the current label with one sampled a second earlier.','String matching can fail after localization or renamed choices; numeric logic can remain stable.','expression-language expression-controls data','expressions')
+
+topic('outline-styles','Text outlines, Layer Styles and source editability','Text & data','Choose geometry conversion separately from live text and effect outlines.', '''
+Outlines::Select a text layer and use Layer → Create → Create Shapes From Text or Create Masks From Text. Keep the original text: generated outlines do not update when wording changes. Inspect holes in compound letters before animating vertices.
+Styles::Layer → Layer Styles includes shadow, glow, bevel, overlay and Stroke options. These are Timeline style properties with their own render behavior, rather than ordinary Effect Controls instances.
+Stroke choices::A style Stroke follows visible layer content; Generate → Stroke follows a mask path; a shape Stroke styles its geometry. Use shape Trim Paths for a designed line reveal, a mask Stroke for mask-based writing and a style for a silhouette outline.
+''','Compare the three Stroke approaches on duplicated artwork and record which remains editable as text.','Converting artwork to paths sacrifices source-string editability; retain a source version.','text shapes strokes','text-outlines layer-styles')
+
+topic('immersive','360-degree imagery and seam-aware effects','Effects','Convert between spherical panoramas and a normal viewer intentionally.', '''
+Projection::Use suitable equirectangular source imagery. VR Sphere to Plane makes a rectilinear view; VR Plane to Sphere puts planar imagery into a spherical projection. These work with appropriate still or moving sources.
+Seams::Use immersive-aware effects for work across panorama seams, then inspect the full wrap rather than only a center viewport. Ordinary planar blur/distortion can create a discontinuity at the edge.
+Workflow::Use VR Comp Editor or a deliberate nested-comp setup where available, retaining source projection and destination dimensions. CC Environment is another environment-mapping effect, not a stills-only counterpart to video-only VR effects.
+''','Project a panorama to a normal frame, animate the view and inspect a seam-spanning effect in the wrapped source.','A spherical projection is not editable geometric scene depth.','3d-intro effects','immersive')
 
 RECIPES=[]
 def recipe(id,title,category,goal,steps,verify,fail,level='Intermediate',sources='help'):
  RECIPES.append(dict(id=id,title=title,category=category,goal=goal,steps=[s.strip() for s in steps.strip().split('\n') if s.strip()],verify=verify,fail=fail,level=level,sources=sources.split()))
 recipe('logo-reveal','01 · Logo reveal using a matte','Compositing','Animated shape reveals a graphic without destroying its pixels.','''
 Create a 1920×1080 24-fps composition and center a logo PNG with transparency.
-Create a white rounded rectangle above it, longer than the logo and initially positioned left of the logo.
+Create a white rounded rectangle as a fixed reveal window covering the logo’s final position. Position the logo entirely outside the window at the start.
 On the logo layer select the rectangle as an Alpha Matte source; use F4 if the TrkMat column is hidden.
-Animate the rectangle from left of the logo to beyond its right edge in 20 frames. Add Ease Out and inspect alpha.
+Animate the logo into its final position inside the stationary matte over 20 frames. Ease the entrance and inspect alpha; the full final logo must remain inside the window.
 Place a second copy of the logo at low opacity underneath for a tasteful ghost trail, only if readability improves.
 ''','The logo is never visibly stretched and is fully revealed by frame 20.','If the entire rectangle renders, verify it is functioning as a matte source and that matte settings reference the intended layer.','Beginner')
 recipe('text-window','02 · Footage visible through moving text','Compositing','Use letters as an alpha matte.','''
@@ -998,7 +1229,7 @@ Add an outline/background to keep the title legible and preview each frame.
 recipe('corner-pin','05 · Replace a moving sign/screen','Tracking & 3D','Map a replacement layer into four moving corners.','''
 Choose a shot of an almost planar screen or poster with visible texture.
 Open bundled Mocha AE from the effect integration, draw a planar region and track the shot.
-Set/verify a planar surface with the correct corner order; transfer corner pin data using the integration available in 25.6.
+Set/verify a planar surface with the correct corner order; transfer corner pin data using the integration available in 26.5.
 Place a bold checkerboard into the replacement comp and inspect alignment at each frame.
 Replace the checkerboard with the desired screen contents; match blur, exposure and noise.
 ''','Checkerboard corners remain anchored and final insert has no glaring seams.','Perspective slippage usually indicates an unstable plane or the wrong corner calibration.')
@@ -1015,7 +1246,7 @@ Mark foreground and remove unwanted selected regions, starting at a good base fr
 Propagate through a 2-second segment, fixing errors around hands and head.
 Use Refine Edge for hair and tune matte edge controls modestly; Freeze the result.
 Place a background layer behind the cutout and render-check the complete segment.
-''','The subject is clean on at least two contrasting backgrounds.','25.6 does not include the 26.2 Object Matte tool; use available Roto Brush/Refine Edge.')
+''','The subject is clean on at least two contrasting backgrounds.','If propagation fails, compare Object Matte, Quick Selection and Refine Edge, inspect the base frame and correct occlusions.')
 recipe('handwriting','08 · Handwriting from a traced mask','Animation','Use the Stroke effect to reveal a line.','''
 Place scanned writing on a comp-sized solid or duplicated image as an image guide.
 Draw one or several mask paths along the visible pen stroke in the correct order.
@@ -1036,11 +1267,11 @@ Select the intended layers in sequence, making sure selection order matches desi
 Hold Ctrl+Alt and drag the selected layer bars (Quick Offset) to distribute the group over time.
 Inspect the earliest and latest start times; trim unwanted overlaps if necessary.
 Preview and compare with manually offsetting keyframes only.
-''','Entrances are staggered without changing each layer’s internal animation.','Quick Offset is a 25.4 feature; 26.0 Shift+bracket group-boundary shortcuts do not apply.')
+''','Entrances are staggered without changing each layer’s internal animation.','Quick Offset changes timing. Proportional Scrubbing changes property values; Shift+[ or Shift+] moves a staggered layer selection as a group.')
 recipe('logo-pulse','11 · Beat-reactive pulse','Audio','Drive scale from audio-derived keyframes.','''
 Import an audio file and use Convert Audio to Keyframes.
 Select a logo and add a 2D Scale expression referencing Audio Amplitude → Both Channels Slider.
-Use a modest remap, e.g. `a=...; s=100+Math.min(20,a*1.5); [s,s];` with a valid pick-whip reference.
+Use `a=thisComp.layer("Audio Amplitude").effect("Both Channels")("Slider"); s=100+Math.min(20,a*1.5); [s,s];` on 2D Scale, verifying names against your generated controller.
 Preview with sound and observe peak reactions; smooth or cap peaks where needed.
 Add a 10-frame opacity fade and export an audio-enabled review file.
 ''','Logo scales gently with the sound and never collapses during quiet segments.','Array dimensionality errors cause red expression warnings.')
@@ -1071,7 +1302,7 @@ Apply Camera Lens Blur to a duplicate of the footage and select the depth/blur m
 Tune Radius and map interpretation until background blur is stronger than the subject.
 Feather the map and inspect the transition around the subject silhouette.
 Compare to a global Gaussian Blur and evaluate render cost.
-''','Subject retains detail while distant region falls out of focus gradually.','This is a 2D Camera Lens Blur workflow, not 26.3 in-engine Advanced 3D DOF.')
+''','Subject retains detail while distant region falls out of focus gradually.','This uses a 2D blur map; for actual scene focus use the separate Advanced 3D camera DOF workflow.')
 recipe('glow-outline','16 · Tracked glowing outline','Compositing','Build glow from a clean traced contour.','''
 Create or track a mask path following the subject with as few stable vertices as possible.
 Apply Generate → Stroke to a comp-sized solid and configure the path and width.
@@ -1131,8 +1362,8 @@ Change JSON to a longer team label and verify the design remains readable.
 recipe('loop-remap','24 · Make a seamless time-remapped loop','Animation','Avoid a one-frame black or phantom-frame flash.','''
 Import a visibly seamless 2-second clip into a 6-second comp.
 Enable Time Remapping and inspect initial keyframes, especially end-duration key.
-Set a key on the last valid frame and remove or correct the phantom duration-end key.
-Add `loopOut('cycle')` expression to Time Remap and compare the repeated cycles frame by frame.
+For a source with N frames and frame duration d, keep the initial key at (0,0). Add a key at ((N-1)*d,(N-1)*d) and make its outgoing interpolation Hold. At the cycle boundary N*d set Time Remap to 0, replacing the default beyond-source value.
+Add `loopOut('cycle')` on Time Remap, extend the layer to six seconds and compare repeated cycles frame by frame. The loop duration stays N*d, including the final source frame’s interval.
 Check final frame and audio timing; Time Remap does not guarantee an inherently nonseamless source becomes seamless.
 ''','No unexpected blank, duplicate or jump frame at loop boundaries.','A mathematical loop cannot conceal mismatched first/last source artwork.')
 recipe('alpha-delivery','25 · Transparent master and color check','Color & delivery','Deliver usable compositing assets.','''
@@ -1158,7 +1389,68 @@ Add a procedural 2-second transition and final text, synchronize audio, then ren
 Collect Files, reopen the collected project and write a self-critique of three improvements.
 ''','Both render and portable project exist, with no one-frame flashes or missing media.','A capstone is not complete until the collected source can be reopened.')
 
+recipe('guide-layout','00 · Responsive title layout','Animation','Keep proportional and fixed margins distinct.','''
+Duplicate a title comp before modifying its dimensions.
+Show rulers, then add a vertical 50% guide using View → Add Guide.
+Add a vertical 100-pixel guide referenced from the right and a horizontal bottom margin.
+Change the duplicate’s aspect ratio and inspect guide positions; reposition artwork deliberately.
+Export/import .guides into the other comp and verify colors, units and edges rather than assuming a round trip.
+''','Center and fixed-margin guides retain their intended meanings; text is still inside the delivery frame.','Guides are view-specific and do not animate or reposition layers.','Beginner','guides')
+recipe('object-texture','00 · Texture inside an Object Matte subject','Compositing','Separate semantic selection from texture animation.','''
+Open suitable moving footage in Layer panel and select the Object Matte toolbar tool.
+Click the subject, refine the base selection and propagate the required span.
+Correct occlusions and edge errors, then Freeze and inspect the silhouette over contrasting colors.
+Add an animated texture on a separate layer and assign the isolated subject as its Alpha Matte.
+Animate the texture independently and render a short sample, checking alpha and the whole moving edge.
+''','Texture follows the subject silhouette with no one-frame holes or unrelated background.','Correct the source matte before trying to hide edge problems with Glow.','Intermediate','object-matte')
+recipe('font-axis','00 · Editable variable-font emphasis','Text & data','Change letterform weight instead of scaling the whole layer.','''
+Create a short headline in an installed variable font.
+Choose Text → Animate → Variable Font Axes and an axis present in that font.
+Keyframe the axis at time zero and at one second using supported values.
+Use the Range Selector to send emphasis across characters or words.
+Compare spacing modes and render the result at delivery size; record the font dependency.
+''','Text remains editable and readable without unexpected spacing or wrapping.','A static font family does not expose variable axes.','Intermediate','variable-fonts')
+recipe('curl-matte','00 · Flowing Curl Noise reveal','Effects','Use a procedural field as a controllable matte.','''
+Create a comp-sized solid and apply Curl Noise with Quick Apply.
+Begin with Internal input and adjust Scale/Swirl while keeping color simple.
+Animate one motion control, inspecting Input Noise versus Final Render.
+Precompose the generated field and assign it as a Luma Matte to an incoming image.
+Animate a contrast/brightness transition to finish at complete coverage, then inspect start/end frames and the rendered cut.
+''','The incoming image ends fully visible with no residual old frame.','A partially bright noise field alone will not reach opaque full coverage.','Intermediate','noise')
+recipe('unmult-master','00 · Black-backed element to RGBA master','Compositing','Deliver alpha instead of relying on a background-specific blend.','''
+Import a suitable light/smoke element with a black background and retain a source copy.
+Apply Unmult, choose Black and inspect Alpha with Alt+4.
+Adjust Black Level and Softness, then inspect Remove Color Matting around translucent edges.
+Test over dark gray, white and saturated backgrounds; protect foreground black where needed.
+Export RGB+Alpha to a suitable format and reimport over a contrasting solid to verify color and coverage.
+''','Rendered alpha works over more than one background without opaque black borders.','Screen mode alone does not establish a reusable alpha master.','Intermediate','keying-effects')
+recipe('mesh-rack-focus','00 · Native mesh rack focus','Tracking & 3D','Render a stable 26.5 geometry and focus study.','''
+Create a comp with Advanced 3D and add two native meshes at different depths.
+Set distinct roughness/metallic values and light them with a controlled environment or supported light.
+Create a camera and enable Camera Options → Depth of Field.
+Set focus to the near object, then animate Focus Distance to the far object over two seconds.
+Render in Active Camera at Full quality and inspect near/far edges and the focus transition.
+''','Focus travels between real scene objects with a predictable first/middle/final frame.','A custom viewer is not the final Active Camera; do not confuse Camera Lens Blur with this scene render.','Advanced','meshes advanced-dof')
+recipe('ocio-proof','00 · ACES 2.0 input-to-output proof','Color & delivery','Make every color transform explicit.','''
+Duplicate a small test project and choose Project Settings → Color → OCIO color managed.
+Choose the pipeline-appropriate ACES 2.0 CG v4.0 or Studio v4.0 configuration.
+Interpret a known source correctly and choose a suitable scene-linear working space such as ACEScg.
+Set a display transform for inspection and an independent Output Module output color space for delivery.
+Render a short image sequence, reimport with the correct interpretation and compare to the reference without double-applying a display transform.
+''','Source, working, display and output transforms are recorded and the reference comparison is consistent.','Do not change an established project’s configuration in place without a known-good reference.','Advanced','ocio')
+
 ADDITIONAL_GLOSSARY = '''
+Quick Apply :: Ctrl+Enter launcher for effects, animation presets and menu commands; stable since 26.2.
+Object Matte :: Object-selection and propagation workflow with disk caching in 26.5; distinct from ordinary vector masks.
+Proportional Scrubbing :: Ctrl+Alt-drag property hot text to distribute a numerical change in selection order; distinct from timing offsets.
+Parametric mesh :: Native 3D geometry controlled by editable parameters in Advanced 3D.
+SBSAR :: Substance material file with exposed procedural controls; keep it with project dependencies.
+Variable font axis :: Continuous font-specific variation such as Weight or Width, animatable through text animators.
+Unmult :: Keying effect converting a suitable black/white backing into alpha with level and edge controls.
+Curl Noise :: Procedural 2D flowing texture effect introduced in 26.3.
+Guide pinning :: A guide’s reference edge for responsive placement; different from locking against edits.
+ACES 2.0 :: Color pipeline supported natively in 26.5 through OCIO 2.5.1 and bundled CG/Studio v4.0 configurations.
+
 AEP :: Native After Effects project file storing editable compositions and source references rather than embedding every source file.
 Footage item :: Media reference inside the Project panel; one item can appear in multiple compositions.
 Footage panel :: Viewer for opening an imported file's source frames, distinct from a composition view.
@@ -1282,15 +1574,15 @@ Tip of the Day :: AE 25.6 guidance shown in certain empty/reloaded viewer contex
 '''
 
 ADDITIONAL_TROUBLE = [
- ('After Effects will not launch on Windows','Check installed version, supported CPU/AVX2, required GPU API, permissions and plugin crashes.','Try Adobe supported startup diagnostics and a clean test of third-party plugins; 25.6 requires OpenCL 2.0 where used.'),
- ('Older OpenCL 1.2 GPU fails','Verify 25.6 hardware requirements and installed GPU driver/OpenCL capabilities.','Use a supported GPU with the required API, not a workaround that disables GPU capability checks.'),
- ('Cannot find Quick Apply','Version is 25.6, while Quick Apply started in 26.2.','Use Effects & Presets panel search; optionally verify custom keyboard mappings.'),
- ('Cannot find Object Matte tool','Object Matte first shipped in 26.2, not in 25.6.','Use Roto Brush, Refine Edge, Mask Tracking or Mocha AE.'),
- ('Cannot find native SVG shape import','Direct SVG as editable shapes is a 26.0 feature.','Import compatible vector art through supported older workflows such as Illustrator art and convert shapes where available.'),
- ('Cannot find new Unmult or Curl Noise','Unmult began in 26.0; Curl Noise in 26.3.','Use Set Matte / keying or Fractal/Turbulent Noise alternatives and document their differences.'),
- ('Cannot find Audio Compressor/Gate/Distortion','The additional built-in audio effects were introduced in 26.0.','Use 25.6 existing Audio effects, or prepare audio in a dedicated editor.'),
- ('No new percentage-based guide controls','Guide overhaul with percentages and edge pinning was 26.5.','Use standard guide/ruler and grid controls available in 25.6.'),
- ('Cannot generate ACES 2.0 default configuration','The 26.5 update added bundled ACES 2.0/OCIO 2.5.1 support.','Use supported 25.6 OCIO/ACES configurations and carefully validate any externally supplied config.'),
+ ('After Effects will not launch on Windows','Check installed version, supported CPU/AVX2, required GPU API, permissions and plugin crashes.','Check the current 26.5 system requirements, driver and architecture; isolate third-party startup effects with supported diagnostics.'),
+ ('Older OpenCL 1.2 GPU fails','Verify 26.5 hardware requirements and installed GPU driver/OpenCL capabilities.','Use a supported GPU with the required API, not a workaround that disables GPU capability checks.'),
+ ('Cannot find Quick Apply', 'Check 26.5 stable, text/modal focus and a remapped shortcut.', 'Use Edit → Quick Apply or its Timeline icon; Ctrl+Enter opens it. Check installed Keyboard Shortcuts.'),
+ ('Cannot find Object Matte tool', 'Confirm 26.5 and open the footage layer in Layer panel.', 'Choose Object Matte from the toolbar. Adobe lists Ctrl+W, which conflicts with Close; verify locally rather than assuming a focus rule.'),
+ ('Cannot find native SVG shape import', 'Check import mode and whether you are importing a file or pasting clipboard SVG.', 'File → Import → File can import SVG as a composition or footage; Illustrator paste requires Include SVG Code.'),
+ ('Cannot find new Unmult or Curl Noise', 'Search e:unmult or e:curl noise in Quick Apply and inspect Effect → Manage Effects.', 'Confirm 26.5 stable and enabled native effects. Unmult handles black/white alpha; Curl Noise generates flowing texture.'),
+ ('Cannot find Audio Compressor/Gate/Distortion', 'Verify the selected audio layer and search the Audio effects category.', 'These effects are stable in 26.5. Test the processed rendered sound with an audio-enabled Output Module.'),
+ ('No new percentage-based guide controls', 'Confirm 26.5 and the active viewer; a guide is distinct from a grid line.', 'Right-click a guide → Edit Guide to set percent/pixel units, reference edge and color.'),
+ ('Cannot generate ACES 2.0 default configuration', 'Check Project Settings → Color → OCIO color managed and the installed version.', 'Choose ACES 2.0 CG v4.0 or Studio v4.0; specify input, working, display and output transforms.'),
  ('Text editor shortcuts change layer behavior','Text cursor has focus, so Ctrl+Shift+K or letter keys act on text.','Exit text editing with a valid method, select Timeline panel, and try again.'),
  ('Shape Layer created but nothing is visible','Empty Contents group, missing Fill/Stroke, hidden layer or path size 0.','Draw a path, enable Fill/Stroke, inspect Contents and layer visibility.'),
  ('New rectangle is a mask instead of a shape','A valid existing image/solid layer was selected or toolbar mode is Tool Creates Mask.','Deselect layers or change toolbar mask/shape mode intentionally.'),
@@ -1300,7 +1592,7 @@ ADDITIONAL_TROUBLE = [
  ('Pixel aspect looks squeezed','Non-square pixel interpretation or comp setting mismatch.','Correct Interpret Footage and composition pixel aspect ratio; verify intended final output.'),
  ('Image sequence imports as one still','Sequence option not enabled or numbering not continuous.','Select the first frame and enable appropriate image-sequence import options.'),
  ('Layer plays backward unexpectedly','Time-Reverse Layer or descending Time Remap curve.','Inspect Time Remap and selected layer time operations, then restore correct source order.'),
- ('Loop has one blank or extra frame','Default last Time Remap key points to source duration after last visible frame.','Correct the loop-end time, then recheck first and last frames.'),
+ ('Loop has one blank or extra frame','Default last Time Remap key points to source duration after last visible frame.','Keep a full source-duration cycle: add a last-valid-frame key, hold it through the final interval, and set the cycle boundary key to source time zero. Inspect every seam.'),
  ('Motion path appears curved but motion is uneven','Spatial path curvature and temporal easing are separate.','Review path geometry and Graph Editor speed; do not equate key spacing with constant travel.'),
  ('Stroke / Trim Paths not visible','Confusing effect Stroke with shape Trim Paths or a hidden Fill/Stroke.','Inspect the intended mask or shape path, stroke width, Trim Paths Start/End and operator location.'),
  ('Replaced source ruined apparent scale','New source dimensions differ while layer scale values were preserved.','Use replacement source at expected dimensions or deliberately adjust Scale/anchor.'),
@@ -1328,26 +1620,17 @@ ADDITIONAL_TROUBLE = [
 
 
 # Recipes become available as optional practice once their prerequisite concept has been learned.
-RECIPE_AFTER={
- 'logo-reveal':10, 'text-window':12, 'lower-third':26, 'track-title':18,
- 'corner-pin':22,'green-key':17,'roto-cutout':19,'handwriting':9,
- 'stroke-icons':8,'stagger':15,'logo-pulse':16,'depth-dolly':21,
- 'camera-dolly':21,'noise-warp':14,'depth-focus':14,'glow-outline':18,
- 'cloud-transition':14,'rgb-split':23,'particles-burst':29,'puppet-wave':28,
- 'content-fill':20,'audio-cues':16,'json-score':25,'loop-remap':15,
- 'alpha-delivery':31,'project-handoff':32,'capstone':35}
+RECIPE_AFTER={'guide-layout':'modern-operations','object-texture':'object-selection','font-axis':'modern-type','curl-matte':'flow-alpha','unmult-master':'flow-alpha','mesh-rack-focus':'mesh-focus','ocio-proof':'color','logo-reveal': 'mattes', 'text-window': 'text', 'lower-third': 'templates', 'track-title': 'tracking', 'corner-pin': '3dtrack', 'green-key': 'keying', 'roto-cutout': 'roto', 'handwriting': 'masks', 'stroke-icons': 'paths', 'stagger': 'timefx', 'logo-pulse': 'audio', 'depth-dolly': 'camera', 'camera-dolly': 'camera', 'noise-warp': 'blur', 'depth-focus': 'blur', 'glow-outline': 'tracking', 'cloud-transition': 'blur', 'rgb-split': 'color', 'particles-burst': 'particles', 'puppet-wave': 'puppet', 'content-fill': 'paint', 'audio-cues': 'audio', 'json-score': 'data', 'loop-remap': 'timefx', 'alpha-delivery': 'render', 'project-handoff': 'collect', 'capstone': 'capstone'}
 for r in RECIPES:
- if r['id'] not in RECIPE_AFTER:
-  raise ValueError('Unclassified recipe: '+r['id'])
- r['afterLesson']=RECIPE_AFTER[r['id']]
- r['level']=('Beginner' if r['afterLesson']<=13 else 'Intermediate' if r['afterLesson']<=24 else 'Advanced')
+ r['afterLesson']=next(i for i,c in enumerate(CHAPTERS,1) if c['id']==RECIPE_AFTER[r['id']])
+ r['level']=('Beginner' if CHAPTERS[r['afterLesson']-1]['phase'] in ('START','FOUNDATIONS') else 'Intermediate' if CHAPTERS[r['afterLesson']-1]['phase']=='INTERMEDIATE' else 'Advanced')
 RECIPES.sort(key=lambda r:(r['afterLesson'],r['id']))
 for i,r in enumerate(RECIPES,1):
  r['title']=f"{i:02d} · "+r['title'].split(' · ',1)[1]
 
 QUIZ = [
  ('Which file is the editable After Effects project?',['.mp4','.aep','.png','.wav'],1,'The .aep stores compositions and references to other assets.'),
- ('In 25.6, which 2026 command is not available?',['Quick Offset','Effects & Presets','Quick Apply','Precompose'],2,'Quick Apply started in 26.2; Quick Offset started in 25.4.'),
+ ('Which launcher searches effects, presets and menu commands in 26.5?',['Quick Offset','Effects & Presets','Quick Apply','Precompose'],2,'Ctrl+Enter opens Quick Apply; e:, p: and m: narrow its result types.'),
  ('What does the layer Anchor Point define?',['Delivery frame rate','Local transform pivot','Source duration','Color space'],1,'Anchor is the pivot in layer coordinates.'),
  ('What does pressing U show on a selected animated layer?',['Only used keyframed properties','Audio levels','Undo history','All matte sources'],0,'U reveals animation-keyed properties.'),
  ('Which shortcut trims selected layer IN at playhead?',['[','Alt+[','Shift+[','Ctrl+['],1,'Alt+[ trims; [ shifts the layer.'),
@@ -1364,7 +1647,7 @@ QUIZ = [
  ('What is a purpose of a Null?',['Encoding video','Parenting controller','Converting RGB','Importing audio'],1,'Nulls are invisible transform/control layers.'),
  ('Which operation changes nested render order?',['Precompose','Rename','Timeline zoom','Info panel'],0,'Precompose can move effect/transform stages to another context.'),
  ('What is an Adjustment Layer?',['A global file proxy','An effect processor for composited pixels below','An audio file','An export-only effect'],1,'It applies effects to underlying composited layers within context.'),
- ('Which AE 26.x tool is absent in 25.6?',['Roto Brush','Mocha AE','Object Matte','Keylight'],2,'Object Matte debuted in 26.2.'),
+ ('Which tool offers object-based subject selection in 26.5?',['Roto Brush','Mocha AE','Object Matte','Keylight'],2,'Object Matte debuted in 26.2.'),
  ('Why track a checkerboard before final screen replacement?',['Better font loading','Easier to spot corner drift','Automatic audio sync','Uses less storage'],1,'Distinct grid corners expose perspective tracking errors.'),
  ('Which tool is best suited to a planar moving sign?',['Mocha AE planar tracker','Only Gaussian Blur','Levels','Audio Spectrum'],0,'Mocha tracks planar surfaces for corner-pin results.'),
  ('What does Roto Brush Freeze do?',['Renders final MP4','Locks propagated segmentation for range','Changes footage FPS','Converts masks to shape'],1,'Freeze caches propagation, not final media delivery.'),
